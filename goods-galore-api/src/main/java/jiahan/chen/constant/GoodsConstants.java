@@ -26,4 +26,6 @@ public interface GoodsConstants {
      */
     Integer DEFAULT_PAGE_SIZE = 10;
 
+    Integer DB_INSERT_RESULT_BIGZERO = 0;
+
 }

@@ -1,5 +1,6 @@
 package jiahan.chen.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiOperation;
 import jiahan.chen.base.BaseApiController;
 import jiahan.chen.base.BaseResponse;
@@ -8,10 +9,13 @@ import jiahan.chen.core.cache.LocalCache;
 import jiahan.chen.entity.Account;
 import jiahan.chen.dto.resp.AccountRespDTO;
 import jiahan.chen.service.IAccountService;
+import jiahan.chen.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,5 +45,30 @@ public class AccountController extends BaseApiController {
         }
         List<Account> allAccount = accountService.getAllAccount();
         return setResultSuccessData(allAccount);
+    }
+
+    /**
+     * 传递用户令牌
+     * @return
+     */
+    @GetMapping("/getByToken")
+    @ApiOperation(value = "Get Account By Token", notes = "Get Account By Token")
+    public BaseResponse getByTokenUserInfo(@RequestHeader String token) {
+        // 验证参数
+        if (StringUtils.isEmpty(token)) {
+            log.error("[token is null]");
+            return setResultError("[token is null]");
+        }
+        // 根据token查询用户信息
+        String redisValue = RedisUtils.getString(token);
+        if (StringUtils.isEmpty(redisValue)) {
+            log.error("[redisValue is null]");
+            return setResultError("[token is null]");
+        }
+        Integer userId = Integer.valueOf(redisValue);
+        Account account = accountService.getByAccountId(userId);
+        // do 与 dto 互转 敏感的数据过滤掉
+        AccountRespDTO accountRespDTO = BeanUtil.toBean(account, AccountRespDTO.class);
+        return setResultSuccessData(accountRespDTO);
     }
 }

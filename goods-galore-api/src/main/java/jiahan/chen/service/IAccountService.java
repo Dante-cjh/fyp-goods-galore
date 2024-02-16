@@ -16,4 +16,17 @@ import java.util.List;
 public interface IAccountService extends IService<Account> {
     List<Account> getAllAccount();
 
+    /**
+     * 根据用户名查询用户信息
+     *
+     * @param username
+     * @return
+     */
+    Account getAccountByUsername(String username);
+
+    /**
+     *  根据用户id查询用户信息
+     */
+    Account getByAccountId(Integer accountId);
+
 }
