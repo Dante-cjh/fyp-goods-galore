@@ -73,6 +73,7 @@ public class AccountController extends BaseApiController {
     }
 
     @PostMapping("/profile/update")
+    @ApiOperation(value = "Update Account Profile", notes = "Update Account Profile")
     public BaseResponse updateUserProfile(@RequestHeader String token, @RequestBody ProfileReqDTO profileReqDTO) {
         // 验证参数
         if (StringUtils.isEmpty(token)) {
@@ -88,6 +89,24 @@ public class AccountController extends BaseApiController {
         Integer userId = Integer.valueOf(redisValue);
 
         return accountService.updateAccountProfile(userId, profileReqDTO) ? setResultSuccess() : setResultError();
+    }
+
+    @PostMapping("/profile/delete")
+    @ApiOperation(value = "Delete Account Profile", notes = "Delete Account Profile")
+    public BaseResponse deleteUserProfile(@RequestHeader String token) {
+        // 验证参数
+        if (StringUtils.isEmpty(token)) {
+            log.error("[token is null]");
+            return setResultError("[token is null]");
+        }
+        // 根据token查询用户信息
+        String redisValue = RedisUtils.getString(token);
+        if (StringUtils.isEmpty(redisValue)) {
+            log.error("[redisValue is null]");
+            return setResultError("[token is null]");
+        }
+        Integer userId = Integer.valueOf(redisValue);
+        return accountService.deleteAccount(userId) ? setResultSuccess() : setResultError();
     }
 
 }

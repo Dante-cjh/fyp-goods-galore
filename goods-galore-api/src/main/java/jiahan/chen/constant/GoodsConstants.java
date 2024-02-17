@@ -1,5 +1,7 @@
 package jiahan.chen.constant;
 
+import io.swagger.models.auth.In;
+
 /**
  * @author Jiahan Chen
  * @ClassName MayiktConstants

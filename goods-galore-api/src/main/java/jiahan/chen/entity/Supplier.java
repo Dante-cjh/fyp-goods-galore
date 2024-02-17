@@ -15,10 +15,10 @@ import lombok.Data;
  * </p>
  *
  * @author Jiahan Chen
- * @since 2024-02-05
+ * @since 2024-02-17
  */
-@ApiModel(value = "Supplier对象", description = "")
 @Data
+@ApiModel(value = "Supplier对象", description = "")
 public class Supplier implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,7 +30,14 @@ public class Supplier implements Serializable {
 
     private String address;
 
-    private String contactInfo;
+    @ApiModelProperty("联系电话")
+    private String phoneNumber;
+
+    @ApiModelProperty("联系邮箱")
+    private String email;
+
+    @ApiModelProperty("描述")
+    private String description;
 
     private Integer accountId;
 

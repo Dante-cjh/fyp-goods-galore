@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author Jiahan Chen
@@ -38,6 +38,8 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     @Override
     public List<Account> getAllAccount() {
         QueryWrapper<Account> objectQueryWrapper = new QueryWrapper<>();
+        // 添加筛选条件，只选取is_available为true的记录
+        objectQueryWrapper.eq("is_avalible", 1);
         List<Account> accountList = accountMapper.selectList(objectQueryWrapper);
         return accountList;
     }
@@ -48,7 +50,8 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
 //        accountQueryWrapper.eq("username", username);
 
         LambdaQueryWrapper<Account> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Account::getUsername, username);
+        lambdaQueryWrapper.eq(Account::getUsername, username)
+                .eq(Account::getIsAvalible, 1);
         Account account = accountMapper.selectOne(lambdaQueryWrapper);
         return account;
     }
@@ -78,8 +81,15 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         return accountMapper.updateById(account) > GoodsConstants.DB_UPDATE_RESULT_BIGZERO;
     }
 
+    @Override
+    public boolean deleteAccount(Integer accountId) {
+        Account account = accountMapper.selectById(accountId);
+        account.setIsAvalible(false);
+        return accountMapper.updateById(account) > GoodsConstants.DB_UPDATE_RESULT_BIGZERO;
+    }
+
     private String savePicImg(MultipartFile file) {
-        if(file == null) {
+        if (file == null) {
             return null;
         }
         log.info("[上传文件开始]");

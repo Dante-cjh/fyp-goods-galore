@@ -32,4 +32,5 @@ public interface IAccountService extends IService<Account> {
 
     boolean updateAccountProfile(Integer accountId, ProfileReqDTO profileReqDTO);
 
+    boolean deleteAccount(Integer accountId);
 }
