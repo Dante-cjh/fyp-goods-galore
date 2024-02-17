@@ -1,5 +1,6 @@
 package jiahan.chen.service;
 
+import jiahan.chen.dto.req.ProfileReqDTO;
 import jiahan.chen.entity.Account;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -28,5 +29,7 @@ public interface IAccountService extends IService<Account> {
      *  根据用户id查询用户信息
      */
     Account getByAccountId(Integer accountId);
+
+    boolean updateAccountProfile(Integer accountId, ProfileReqDTO profileReqDTO);
 
 }

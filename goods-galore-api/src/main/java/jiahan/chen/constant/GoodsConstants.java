@@ -28,4 +28,6 @@ public interface GoodsConstants {
 
     Integer DB_INSERT_RESULT_BIGZERO = 0;
 
+    Integer DB_UPDATE_RESULT_BIGZERO = 0;
+
 }

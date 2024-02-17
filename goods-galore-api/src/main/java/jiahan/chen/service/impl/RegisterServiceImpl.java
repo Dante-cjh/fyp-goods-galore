@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import java.time.LocalDateTime;
+
 /**
  * @author Jiahan Chen
  * @ClassName RegisterServiceImpl
@@ -57,6 +59,7 @@ public class RegisterServiceImpl implements IRegisterService {
         dbAccount.setAccountSalt(salt);
         dbAccount.setPassword(newPwd);
         dbAccount.setUsername(userName);
+        dbAccount.setCreateTime(LocalDateTime.now());
 
         // 4. 注册（添加数据）
         return accountMapper.insert(dbAccount) > GoodsConstants.DB_INSERT_RESULT_BIGZERO;

@@ -15,7 +15,4 @@ public class AccountReqDTO {
 
     @ApiModelProperty(value = "密码")
     private String password;
-
-    @ApiModelProperty("角色(1 超市；2 供应商；3 管理员 )")
-    private Integer role;
 }
