@@ -1,5 +1,6 @@
 package jiahan.chen.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import jiahan.chen.entity.Supplier;
 import jiahan.chen.mapper.SupplierMapper;
 import jiahan.chen.service.ISupplierService;
@@ -17,4 +18,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class SupplierServiceImpl extends ServiceImpl<SupplierMapper, Supplier> implements ISupplierService {
 
+    @Override
+    public Supplier getSupplierBySupplierId(Integer supplierId) {
+        return baseMapper.selectById(supplierId);
+    }
+
+    @Override
+    public Supplier getSupplierByAccountId(Integer accountId) {
+        LambdaQueryWrapper<Supplier> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Supplier::getAccountId, accountId);
+        return baseMapper.selectOne(lambdaQueryWrapper);
+    }
 }

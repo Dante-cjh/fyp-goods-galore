@@ -3,14 +3,19 @@ package jiahan.chen.controller;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.PageUtil;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import jiahan.chen.base.BaseApiController;
 import jiahan.chen.base.BaseResponse;
 import jiahan.chen.constant.GoodsConstants;
 import jiahan.chen.core.cache.LocalCache;
+import jiahan.chen.dto.req.Product2ReqDTO;
 import jiahan.chen.dto.req.ProductReqDTO;
 import jiahan.chen.dto.resp.ProductRespDTO;
 import jiahan.chen.entity.Product;
+import jiahan.chen.entity.Supplier;
 import jiahan.chen.service.IProductService;
+import jiahan.chen.service.ISupplierService;
+import jiahan.chen.utils.TokenUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
@@ -32,6 +37,10 @@ public class ProductController extends BaseApiController {
 
     @Autowired
     private IProductService iProductService;
+
+    @Autowired
+    private ISupplierService iSupplierService;
+
     /**
      * 查找
      * @return
@@ -78,4 +87,53 @@ public class ProductController extends BaseApiController {
         return setResultSuccessData(result);
     }
 
+    @PostMapping("/addProduct")
+    @ApiOperation(value = "添加商品", notes = "添加商品")
+    public BaseResponse addProduct(@RequestHeader String token ,@RequestBody Product2ReqDTO productReq2DTO) {
+        Integer accountId = TokenUtils.getUserIdByToken(token);
+        // 获取供应商信息
+        Supplier supplier = iSupplierService.getSupplierByAccountId(accountId);
+        // 判断该id是供应商
+        if (supplier == null) {
+            log.error("该用户不是供应商");
+            return setResultError("该用户不是供应商");
+        }
+        Integer supplierId = supplier.getSupplierId();
+
+        return iProductService.createProduct(supplierId, productReq2DTO) ? setResultSuccess() : setResultError("添加失败");
+    }
+
+    // 更新产品
+    @PutMapping("/update/{productId}")
+    @ApiOperation(value = "更新商品", notes = "更新商品")
+    public BaseResponse updateProduct(@PathVariable Integer productId,@RequestBody Product2ReqDTO product2ReqDTO) {
+        // 检查参数
+        if (productId == null) {
+            log.error("[参数校验] 产品id为空");
+            return setResultError("商品id不能为空");
+        }
+        return iProductService.updateProduct(productId ,product2ReqDTO) ? setResultSuccess() : setResultError("更新失败");
+    }
+
+    // 删除产品
+    @DeleteMapping("/delete/{productId}")
+    public BaseResponse deleteProduct(@PathVariable Integer productId, @RequestHeader String token) {
+        // 检查参数
+        if(productId == null) {
+            log.error("[参数校验] 产品id为空");
+            return setResultError("商品id不能为空");
+        }
+
+        // 验证是否为自己的商品
+        Integer accountId = TokenUtils.getUserIdByToken(token);
+        Supplier supplier = iSupplierService.getSupplierByAccountId(accountId);
+
+        Product product = iProductService.getProductByProductId(productId);
+        if (product.getSupplierId() != supplier.getSupplierId()) {
+            log.error("该商品不是自己的商品");
+            return setResultError("该商品不是自己的商品");
+        }
+
+        return iProductService.deleteProduct(productId.intValue()) ? setResultSuccess() : setResultError("删除失败");
+    }
 }

@@ -1,5 +1,6 @@
 package jiahan.chen.service;
 
+import io.swagger.models.auth.In;
 import jiahan.chen.entity.Supplier;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-02-17
  */
 public interface ISupplierService extends IService<Supplier> {
+    Supplier getSupplierBySupplierId(Integer supplierId);
 
+    Supplier getSupplierByAccountId(Integer accountId);
 }

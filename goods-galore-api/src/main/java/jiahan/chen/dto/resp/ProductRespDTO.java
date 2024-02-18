@@ -34,6 +34,9 @@ public class ProductRespDTO implements Serializable {
     @ApiModelProperty("计量单位")
     private String unit;
 
+    @ApiModelProperty("商品图")
+    private String productPic;
+
     @ApiModelProperty("产品类型")
     private Integer categoryId;
 
