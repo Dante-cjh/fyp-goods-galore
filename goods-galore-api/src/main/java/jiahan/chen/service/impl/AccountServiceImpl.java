@@ -82,6 +82,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
     }
 
     @Override
+    @Transactional
     public boolean deleteAccount(Integer accountId) {
         Account account = accountMapper.selectById(accountId);
         account.setIsAvalible(false);

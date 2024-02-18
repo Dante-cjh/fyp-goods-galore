@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author Jiahan Chen
- * @since 2024-02-05
+ * @since 2024-02-17
  */
 public interface ISupplierService extends IService<Supplier> {
 

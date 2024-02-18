@@ -23,3 +23,6 @@ GoodsGalore:
     maxPoolSize: 8
     queueCapacity: 1000
     keepAlive: 60
+
+upload:
+  path: D:\\data\\upload\\
