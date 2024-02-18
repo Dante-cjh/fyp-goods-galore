@@ -33,7 +33,7 @@ public class AccountController extends BaseApiController {
     @Autowired
     private IAccountService accountService;
 
-    @GetMapping("/index")
+    @GetMapping("/getAll")
     @ApiOperation(value = "Check all accounts", notes = "Check all accounts")
     public BaseResponse index() {
         List<AccountRespDTO> accountRespDTOList = new ArrayList<>();

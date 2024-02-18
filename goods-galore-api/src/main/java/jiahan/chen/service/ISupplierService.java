@@ -2,6 +2,7 @@ package jiahan.chen.service;
 
 import io.swagger.models.auth.In;
 import jiahan.chen.dto.resp.ProductRespDTO;
+import jiahan.chen.dto.resp.SupplierRespDTO;
 import jiahan.chen.entity.Supplier;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -21,4 +22,6 @@ public interface ISupplierService extends IService<Supplier> {
     Supplier getSupplierByAccountId(Integer accountId);
 
     List<ProductRespDTO> getAllProducts(Integer supplierId);
+
+    List<SupplierRespDTO> getAllSupplier();
 }

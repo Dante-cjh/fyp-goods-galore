@@ -29,7 +29,7 @@ public class CategoryController extends BaseApiController {
      * @return
      */
     @GetMapping("/getAllCategory")
-    @ApiOperation(value = "获取所有分类", notes = "获取所有分类")
+    @ApiOperation(value = "Get all categories", notes = "Get all categories")
     public BaseResponse getAllCategory() {
         List<CategoryRespDTO> categoryRespDtoList = new ArrayList<>();
         categoryRespDtoList = LocalCache.get(GoodsConstants.GOODS_ALLCATAGORYLIST, categoryRespDtoList);

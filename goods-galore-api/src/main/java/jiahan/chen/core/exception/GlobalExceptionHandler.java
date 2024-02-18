@@ -1,9 +1,12 @@
 package jiahan.chen.core.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,5 +32,11 @@ public class GlobalExceptionHandler {
         errorResultMap.put("code", "500");
         errorResultMap.put("msg", "系统出现错误!");
         return errorResultMap;
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN) // 403 Forbidden
+    public ResponseEntity<String> handleUnauthorizedException(UnauthorizedException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.FORBIDDEN);
     }
 }

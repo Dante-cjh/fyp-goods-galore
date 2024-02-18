@@ -46,7 +46,7 @@ public class ProductController extends BaseApiController {
      * @return
      */
     @GetMapping("/getAllProduct")
-    @ApiOperation(value = "获取所有商品", notes = "获取所有商品")
+    @ApiOperation(value = "Get all products", notes = "Get all products")
     public BaseResponse getAllCategory() {
         List<ProductRespDTO> productRespDTOList = new ArrayList<>();
         productRespDTOList = LocalCache.get(GoodsConstants.GOODS_ALLPRODUCTLIST, productRespDTOList);
@@ -58,7 +58,7 @@ public class ProductController extends BaseApiController {
     }
 
     @PostMapping("/searchProductList")
-    @ApiOperation(value = "根据条件搜索商品", notes = "根据条件搜索商品")
+    @ApiOperation(value = "Search for products by condition", notes = "Search for products by condition")
     public BaseResponse searchProductList(@RequestBody ProductReqDTO productReqDTO) {
         List<ProductRespDTO> productRespDTOList = iProductService.searchCacheProductList(productReqDTO);
         if (productRespDTOList == null) {
@@ -88,7 +88,7 @@ public class ProductController extends BaseApiController {
     }
 
     @PostMapping("/addProduct")
-    @ApiOperation(value = "添加商品", notes = "添加商品")
+    @ApiOperation(value = "Add Product", notes = "Add Product")
     public BaseResponse addProduct(@RequestHeader String token ,@RequestBody Product2ReqDTO productReq2DTO) {
         Integer accountId = TokenUtils.getUserIdByToken(token);
         // 获取供应商信息
@@ -105,7 +105,7 @@ public class ProductController extends BaseApiController {
 
     // 更新产品
     @PutMapping("/update/{productId}")
-    @ApiOperation(value = "更新商品", notes = "更新商品")
+    @ApiOperation(value = "Updated products", notes = "Updated products")
     public BaseResponse updateProduct(@PathVariable Integer productId,@RequestBody Product2ReqDTO product2ReqDTO) {
         // 检查参数
         if (productId == null) {
@@ -117,6 +117,7 @@ public class ProductController extends BaseApiController {
 
     // 删除产品
     @DeleteMapping("/delete/{productId}")
+    @ApiOperation(value = "Delete products", notes = "Delete products")
     public BaseResponse deleteProduct(@PathVariable Integer productId, @RequestHeader String token) {
         // 检查参数
         if(productId == null) {

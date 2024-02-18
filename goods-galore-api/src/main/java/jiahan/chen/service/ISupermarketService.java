@@ -1,7 +1,10 @@
 package jiahan.chen.service;
 
+import jiahan.chen.dto.resp.SupermarketRespDTO;
 import jiahan.chen.entity.Supermarket;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISupermarketService extends IService<Supermarket> {
 
+    List<SupermarketRespDTO> getAllSupermarket();
 }

@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jiahan.chen.dto.resp.ProductRespDTO;
+import jiahan.chen.dto.resp.SupplierRespDTO;
 import jiahan.chen.entity.Product;
 import jiahan.chen.entity.Supplier;
 import jiahan.chen.mapper.ProductMapper;
@@ -60,5 +61,12 @@ public class SupplierServiceImpl extends ServiceImpl<SupplierMapper, Supplier> i
 
         // 将do对象转化为dto对象
         return BeanUtil.copyToList(productList, ProductRespDTO.class);
+    }
+
+    @Override
+    public List<SupplierRespDTO> getAllSupplier() {
+        QueryWrapper<Supplier> supplierQueryWrapper = new QueryWrapper<>();
+        List<Supplier> supplierList = supplierMapper.selectList(supplierQueryWrapper);
+        return BeanUtil.copyToList(supplierList, SupplierRespDTO.class);
     }
 }
