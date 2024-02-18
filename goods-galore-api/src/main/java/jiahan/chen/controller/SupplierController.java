@@ -4,12 +4,16 @@ import io.swagger.annotations.ApiOperation;
 import jiahan.chen.base.BaseApiController;
 import jiahan.chen.base.BaseResponse;
 import jiahan.chen.dto.req.SupplierApplyReqDTO;
+import jiahan.chen.dto.resp.ProductRespDTO;
+import jiahan.chen.entity.Supplier;
 import jiahan.chen.service.ISupplierApplicationService;
 import jiahan.chen.service.ISupplierService;
 import jiahan.chen.utils.TokenUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Jiahan Chen
@@ -48,6 +52,22 @@ public class SupplierController extends BaseApiController {
 
         // 提交申请
         return supplierApplicationService.submitApplication(userId, supplierApplyReqDTO) ? setResultSuccess() : setResultError();
+    }
+
+    @GetMapping("/getAllProducts")
+    @ApiOperation(value = "get all products", notes = "get all products")
+    public BaseResponse getAllProducts(@RequestHeader String token) {
+        // 获得当前用户
+        Integer userId = TokenUtils.getUserIdByToken(token);
+        Supplier supplier = supplierService.getSupplierByAccountId(userId);
+        if(supplier == null){
+            log.error("[You are not a supplier]");
+            return setResultError("[You are not a supplier]");
+        }
+        Integer supplierId = supplier.getSupplierId();
+        List<ProductRespDTO> productRespDTOList = supplierService.getAllProducts(supplierId);
+
+        return setResultSuccessData(productRespDTOList);
     }
 
 }
