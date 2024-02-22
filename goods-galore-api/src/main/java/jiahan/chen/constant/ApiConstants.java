@@ -6,7 +6,7 @@ package jiahan.chen.constant;
 
 public enum ApiConstants {
     HTTP_RES_CODE_200(200, "ok"),
-    HTTP_RES_CODE_500(500, "系统发生错误，请稍后重试");
+    HTTP_RES_CODE_500(500, "There was an error. Please try again later.");
     private Integer code;
     private String value;
 

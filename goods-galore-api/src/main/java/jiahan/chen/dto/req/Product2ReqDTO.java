@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.math.BigDecimal;
+
 /**
  * @author Jiahan Chen
  * @ClassName Product2ReqDTO
@@ -17,7 +19,7 @@ public class Product2ReqDTO {
     private String description;
 
     @ApiModelProperty("单价")
-    private Double price;
+    private BigDecimal price;
 
     @ApiModelProperty("计量单位")
     private String unit;

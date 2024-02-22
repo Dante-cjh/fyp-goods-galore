@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * <p>
@@ -29,7 +30,7 @@ public class ProductRespDTO implements Serializable {
     private String description;
 
     @ApiModelProperty("单价")
-    private Double price;
+    private BigDecimal price;
 
     @ApiModelProperty("计量单位")
     private String unit;

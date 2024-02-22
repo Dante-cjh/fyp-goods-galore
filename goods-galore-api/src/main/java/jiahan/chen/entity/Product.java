@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +34,7 @@ public class Product implements Serializable {
     private String description;
 
     @ApiModelProperty("单价")
-    private Double price;
+    private BigDecimal price;
 
     @ApiModelProperty("计量单位")
     private String unit;

@@ -7,11 +7,8 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import java.util.Collections;
 
 /**
- * @author 余胜军
+ * @author Jiahan Chen
  * @ClassName Test01
- * @qq 644064779
- * @addres www.mayikt.com
- * 微信:yushengjun644
  */
 public class Test01 {
     public static void main(String[] args) {

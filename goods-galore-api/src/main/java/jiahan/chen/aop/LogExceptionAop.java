@@ -34,7 +34,7 @@ public class LogExceptionAop extends BaseApiController {
             return pjp.proceed();
         } catch (Exception e) {
             log.error("e:{}", e);
-            return setResultError();
+            return setResultError(e.getMessage());
         }
     }
 }

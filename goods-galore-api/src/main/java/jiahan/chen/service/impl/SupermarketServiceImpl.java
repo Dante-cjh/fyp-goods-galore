@@ -31,4 +31,12 @@ public class SupermarketServiceImpl extends ServiceImpl<SupermarketMapper, Super
         List<Supermarket> supermarkets = supermarketMapper.selectList(supermarketWrapper);
         return BeanUtil.copyToList(supermarkets, SupermarketRespDTO.class);
     }
+
+    @Override
+    public Supermarket getSupermarketByAccountId(Integer accountId) {
+        QueryWrapper<Supermarket> supermarketWrapper = new QueryWrapper<>();
+        supermarketWrapper.eq("account_id", accountId);
+        Supermarket supermarket = supermarketMapper.selectOne(supermarketWrapper);
+        return supermarket;
+    }
 }

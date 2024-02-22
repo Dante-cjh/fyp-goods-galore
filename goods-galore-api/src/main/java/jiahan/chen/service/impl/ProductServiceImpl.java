@@ -19,6 +19,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -109,7 +110,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         }
 
         String description = product2ReqDTO.getDescription();
-        Double price = product2ReqDTO.getPrice();
+        BigDecimal price = product2ReqDTO.getPrice();
         String unit = product2ReqDTO.getUnit();
 
         // 上传数据
@@ -137,7 +138,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         // 获取新商品信息
         String name = product2ReqDTO.getName();
         String description = product2ReqDTO.getDescription();
-        Double price = product2ReqDTO.getPrice();
+        BigDecimal price = product2ReqDTO.getPrice();
         String unit = product2ReqDTO.getUnit();
         String productPic = null;
         MultipartFile picFile = product2ReqDTO.getProductPic();

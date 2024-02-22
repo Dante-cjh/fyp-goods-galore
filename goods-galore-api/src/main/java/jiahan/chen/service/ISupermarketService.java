@@ -17,4 +17,6 @@ import java.util.List;
 public interface ISupermarketService extends IService<Supermarket> {
 
     List<SupermarketRespDTO> getAllSupermarket();
+
+    Supermarket getSupermarketByAccountId(Integer accountId);
 }
