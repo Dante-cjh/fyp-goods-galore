@@ -1,7 +1,5 @@
 package jiahan.chen.constant;
 
-import io.swagger.models.auth.In;
-
 /**
  * @author Jiahan Chen
  * @ClassName MayiktConstants
@@ -32,4 +30,5 @@ public interface GoodsConstants {
 
     Integer DB_UPDATE_RESULT_BIGZERO = 0;
 
+    Integer DB_DELETE_RESULT_BIGZERO = 0;
 }

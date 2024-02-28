@@ -184,4 +184,13 @@ public class SupermarketController extends BaseApiController {
         List<ReviewSupermarketRespDTO> reviews = reviewService.getReviewsBySupermarketId(supermarketId);
         return  setResultSuccessData(reviews);
     }
+
+    /**
+     * 删除自己评论
+     */
+    @DeleteMapping("/deleteReview/{reviewId}")
+    @ApiOperation(value = "delete review", notes = "delete review")
+    public BaseResponse deleteReview(@PathVariable Integer reviewId) {
+        return reviewService.deleteReview(reviewId) ? setResultSuccess() : setResultError("delete review failed");
+    }
 }

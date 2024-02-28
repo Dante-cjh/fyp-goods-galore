@@ -23,4 +23,6 @@ public interface IReviewService extends IService<Review> {
     List<ReviewSupplierRespDTO> getReviewsBySupplierId(Integer supplierId);
 
     List<ReviewSupermarketRespDTO> getReviewsBySupermarketId(Integer supermarketId);
+
+    boolean deleteReview(Integer reviewId);
 }

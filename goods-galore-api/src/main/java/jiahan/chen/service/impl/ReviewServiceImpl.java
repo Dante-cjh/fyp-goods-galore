@@ -121,4 +121,16 @@ public class ReviewServiceImpl extends ServiceImpl<ReviewMapper, Review> impleme
         }
         return reviewRespDTOs;
     }
+
+    @Override
+    public boolean deleteReview(Integer reviewId) {
+        // 验证参数
+        Review review = reviewMapper.selectById(reviewId);
+        if (review == null) {
+            log.error("评价不存在");
+            return false;
+        }
+
+        return reviewMapper.deleteById(reviewId) > GoodsConstants.DB_DELETE_RESULT_BIGZERO;
+    }
 }
