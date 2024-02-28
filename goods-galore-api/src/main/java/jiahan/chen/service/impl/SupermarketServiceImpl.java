@@ -39,4 +39,9 @@ public class SupermarketServiceImpl extends ServiceImpl<SupermarketMapper, Super
         Supermarket supermarket = supermarketMapper.selectOne(supermarketWrapper);
         return supermarket;
     }
+
+    @Override
+    public Supermarket getSupermarketBySupermarketId(Integer supermarketId) {
+        return supermarketMapper.selectById(supermarketId);
+    }
 }

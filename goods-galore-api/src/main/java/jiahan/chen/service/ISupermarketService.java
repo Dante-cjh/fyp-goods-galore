@@ -19,4 +19,6 @@ public interface ISupermarketService extends IService<Supermarket> {
     List<SupermarketRespDTO> getAllSupermarket();
 
     Supermarket getSupermarketByAccountId(Integer accountId);
+
+    Supermarket getSupermarketBySupermarketId(Integer supermarketId);
 }

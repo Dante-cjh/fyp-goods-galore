@@ -2,11 +2,13 @@ package jiahan.chen.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import jiahan.chen.constant.OrderStatus;
+import jiahan.chen.dto.req.DeliveryReqDTO;
 import jiahan.chen.dto.req.OrderProductReqDTO;
 import jiahan.chen.dto.req.OrderReqDTO;
 import jiahan.chen.dto.resp.OrderRespDTO;
 import jiahan.chen.entity.TOrder;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -33,6 +35,11 @@ public interface IOrderService extends IService<TOrder> {
      * 根据订单id查找订单
      */
     TOrder findOrderByOrderId(Integer orderId);
+
+    /**
+     * 订单配送
+     */
+    boolean orderDelivery(Integer orderId, LocalDateTime estimatedArrival);
 
 
     /**

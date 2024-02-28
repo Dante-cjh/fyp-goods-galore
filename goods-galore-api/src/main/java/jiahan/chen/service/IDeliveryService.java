@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-02-05
  */
 public interface IDeliveryService extends IService<Delivery> {
-
+    Delivery getDeliveryByOrderId(Integer orderId);
 }

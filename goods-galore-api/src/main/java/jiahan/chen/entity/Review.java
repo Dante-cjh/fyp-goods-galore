@@ -1,6 +1,8 @@
 package jiahan.chen.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
@@ -28,7 +30,7 @@ public class Review implements Serializable {
     private Integer reviewId;
 
     @ApiModelProperty("评分")
-    private Boolean rating;
+    private Integer rating;
 
     @ApiModelProperty("评论内容")
     private String comment;

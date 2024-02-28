@@ -1,6 +1,7 @@
 package jiahan.chen.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import lombok.Data;
  * </p>
  *
  * @author Jiahan Chen
- * @since 2024-02-05
+ * @since 2024-02-23
  */
 @ApiModel(value = "Delivery对象", description = "")
 @Data
@@ -27,12 +28,14 @@ public class Delivery implements Serializable {
     @TableId(value = "Delivery_ID", type = IdType.AUTO)
     private Integer deliveryId;
 
+    @TableField("ShippedDate")
     private LocalDateTime shippedDate;
 
+    @TableField("EstimatedArrival")
     private LocalDateTime estimatedArrival;
 
+    @TableField("ActualArrival")
     private LocalDateTime actualArrival;
 
     private Integer orderId;
-
 }

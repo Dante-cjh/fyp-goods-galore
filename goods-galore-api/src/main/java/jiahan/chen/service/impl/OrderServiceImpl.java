@@ -4,15 +4,19 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jiahan.chen.constant.GoodsConstants;
 import jiahan.chen.constant.OrderStatus;
+import jiahan.chen.dto.req.DeliveryReqDTO;
 import jiahan.chen.dto.req.OrderProductReqDTO;
 import jiahan.chen.dto.req.OrderReqDTO;
 import jiahan.chen.dto.resp.OrderRespDTO;
+import jiahan.chen.entity.Delivery;
 import jiahan.chen.entity.TOrder;
 import jiahan.chen.entity.OrderProduct;
 import jiahan.chen.entity.Product;
+import jiahan.chen.mapper.DeliveryMapper;
 import jiahan.chen.mapper.OrderMapper;
 import jiahan.chen.mapper.OrderProductMapper;
 import jiahan.chen.mapper.ProductMapper;
+import jiahan.chen.service.IDeliveryService;
 import jiahan.chen.service.IOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jiahan.chen.service.ISupplierService;
@@ -23,6 +27,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +53,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, TOrder> implement
     private ProductMapper productMapper;
 
     @Autowired
+    private DeliveryMapper deliveryMapper;
+
+    @Autowired
     private ISupplierService supplierService;
+
+    @Autowired
+    private IDeliveryService deliveryService;
 
     @Override
     @Transactional
@@ -123,6 +134,16 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, TOrder> implement
             return false;
         }
         TOrder.setStatus(status);
+        if (status == OrderStatus.DELIVERED) {
+            Delivery delivery = deliveryService.getDeliveryByOrderId(orderId);
+            if (delivery == null) {
+                log.error("delivery not found");
+                return false;
+            }
+
+            delivery.setActualArrival(LocalDateTime.now());
+            deliveryMapper.updateById(delivery);
+        }
         return orderMapper.updateById(TOrder) > GoodsConstants.DB_UPDATE_RESULT_BIGZERO;
     }
 
@@ -143,6 +164,26 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, TOrder> implement
         LambdaQueryWrapper<TOrder> orderLambdaQueryWrapper = new LambdaQueryWrapper<>();
         orderLambdaQueryWrapper.eq(TOrder::getOrderId, orderId);
         return orderMapper.selectOne(orderLambdaQueryWrapper);
+    }
+
+    @Override
+    @Transactional
+    public boolean orderDelivery(Integer orderId, LocalDateTime estimatedArrival) {
+        // 1. 更新订单状态为DELIVERED
+        TOrder order = orderMapper.selectById(orderId);
+        if (order == null) {
+            return false; // 订单不存在
+        }
+        order.setStatus(OrderStatus.DELIVERED);
+        orderMapper.updateById(order);
+
+        // 2. 创建delivery记录
+        Delivery delivery = new Delivery();
+        delivery.setOrderId(orderId);
+        delivery.setShippedDate(LocalDateTime.now());
+        delivery.setEstimatedArrival(estimatedArrival);
+
+        return deliveryMapper.insert(delivery) > GoodsConstants.DB_INSERT_RESULT_BIGZERO;
     }
 
     @Override
