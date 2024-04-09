@@ -123,6 +123,7 @@ public class ReviewServiceImpl extends ServiceImpl<ReviewMapper, Review> impleme
     }
 
     @Override
+    @Transactional
     public boolean deleteReview(Integer reviewId) {
         // 验证参数
         Review review = reviewMapper.selectById(reviewId);
