@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/goods-galore-api/pom.xml" />
+        <option value="$PROJECT_DIR$/goods-galore-mbg/pom.xml" />
+        <option value="$PROJECT_DIR$/goods-galore-common/pom.xml" />
       </list>
     </option>
   </component>
