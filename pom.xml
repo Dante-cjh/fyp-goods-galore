@@ -13,6 +13,7 @@
         <module>goods-galore-demo</module>
         <module>goods-galore-mbg</module>
         <module>goods-galore-common</module>
+        <module>goods-galore-security</module>
     </modules>
 
     <parent>
@@ -48,7 +49,7 @@
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <good-galore-common.version>1.0-SNAPSHOT</good-galore-common.version>
         <good-galore-mbg.version>1.0-SNAPSHOT</good-galore-mbg.version>
-        <mall-security.version>1.0-SNAPSHOT</mall-security.version>
+        <good-galore-security.version>1.0-SNAPSHOT</good-galore-security.version>
     </properties>
 
     <dependencies>
@@ -101,11 +102,11 @@
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <!--mall安全模块-->
-<!--            <dependency>-->
-<!--                <groupId>com.macro.mall</groupId>-->
-<!--                <artifactId>mall-security</artifactId>-->
-<!--                <version>${mall-security.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>jiahan.chen</groupId>
+                <artifactId>good-galore-security</artifactId>
+                <version>${good-galore-security.version}</version>
+            </dependency>
             <!--MyBatis分页插件starter-->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
