@@ -19,10 +19,10 @@
     </parent>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>jiahan.chen</groupId>-->
-<!--            <artifactId>good-galore-parent</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>jiahan.chen</groupId>
+            <artifactId>good-galore-common</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
