@@ -38,10 +38,10 @@
         </el-form-item>
         <el-form-item style="margin-bottom: 60px;text-align: center">
           <el-button style="width: 45%" type="primary" :loading="loading" @click.native.prevent="handleLogin">
-            登录
+            Login
           </el-button>
           <el-button style="width: 45%" type="primary" @click.native.prevent="handleRegister">
-            注册
+            Register
           </el-button>
         </el-form-item>
       </el-form>
@@ -60,14 +60,14 @@
     data() {
       const validateUsername = (rule, value, callback) => {
         if (!isvalidUsername(value)) {
-          callback(new Error('请输入正确的用户名'))
+          callback(new Error('Please enter the correct username'))
         } else {
           callback()
         }
       };
       const validatePass = (rule, value, callback) => {
         if (value.length < 3) {
-          callback(new Error('密码不能小于3位'))
+          callback(new Error('Password cannot be less than 3 digits'))
         } else {
           callback()
         }

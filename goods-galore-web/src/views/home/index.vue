@@ -1,112 +1,85 @@
 <template>
   <div class="app-container">
     <div class="address-layout">
-      <el-row :gutter="20">
-        <el-col :span="6">
-          <div class="out-border">
-            <div class="layout-title">学习教程</div>
-            <div class="color-main address-content">
-              <a href="https://www.macrozheng.com" target="_blank">mall学习教程</a>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="out-border">
-            <div class="layout-title">视频教程</div>
-            <div class="color-main address-content">
-              <a href="https://www.macrozheng.com/mall/catalog/mall_video.html" target="_blank">mall视频教程（2023）</a>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="out-border">
-            <div class="layout-title">点Star支持项目</div>
-            <div class="color-main address-content">
-              <a href="https://github.com/macrozheng/mall" target="_blank">mall项目</a>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
+<!--      <el-row :gutter="20">-->
+<!--        <el-col :span="6">-->
+<!--          <div class="out-border">-->
+<!--            <div class="layout-title">学习教程</div>-->
+<!--            <div class="color-main address-content">-->
+<!--              <a href="https://www.macrozheng.com" target="_blank">mall学习教程</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="6">-->
+<!--          <div class="out-border">-->
+<!--            <div class="layout-title">视频教程</div>-->
+<!--            <div class="color-main address-content">-->
+<!--              <a href="https://www.macrozheng.com/mall/catalog/mall_video.html" target="_blank">mall视频教程（2023）</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="6">-->
+<!--          <div class="out-border">-->
+<!--            <div class="layout-title">点Star支持项目</div>-->
+<!--            <div class="color-main address-content">-->
+<!--              <a href="https://github.com/macrozheng/mall" target="_blank">mall项目</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--      </el-row>-->
     </div>
     <div class="total-layout">
       <el-row :gutter="20">
         <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_order" class="total-icon">
-            <div class="total-title">今日订单总数</div>
+            <div class="total-title">Total Orders</div>
             <div class="total-value">200</div>
           </div>
         </el-col>
         <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_today_amount" class="total-icon">
-            <div class="total-title">今日销售总额</div>
+            <div class="total-title">Total Sales</div>
             <div class="total-value">￥5000.00</div>
           </div>
         </el-col>
         <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_yesterday_amount" class="total-icon">
-            <div class="total-title">昨日销售总额</div>
+            <div class="total-title">Last Total Sales</div>
             <div class="total-value">￥5000.00</div>
           </div>
         </el-col>
-        <!--<el-col :span="6">-->
-          <!--<div class="total-frame">-->
-            <!--<svg-icon icon-class="total-week" class="total-icon">-->
-            <!--</svg-icon>-->
-            <!--<div class="total-title">近7天销售总额</div>-->
-            <!--<div class="total-value">￥50000.00</div>-->
-          <!--</div>-->
-        <!--</el-col>-->
+        <el-col :span="6">
+          <div class="total-frame">
+            <svg-icon icon-class="total-week" class="total-icon">
+            </svg-icon>
+            <div class="total-title">Total Sales Last 7 Days</div>
+            <div class="total-value">￥50000.00</div>
+          </div>
+        </el-col>
       </el-row>
     </div>
-    <el-card class="mine-layout">
-      <div style="text-align: center">
-        <img width="150px" height="150px" src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/banner/qrcode_for_macrozheng_258.jpg">
-      </div>
-      <div style="text-align: center">mall全套学习教程连载中！</div>
-      <div style="text-align: center;margin-top: 5px"><span class="color-main">关注公号</span>，第一时间获取。</div>
-    </el-card>
     <div class="un-handle-layout">
-      <div class="layout-title">待处理事务</div>
+      <div class="layout-title">Pending Matters</div>
       <div class="un-handle-content">
         <el-row :gutter="20">
           <el-col :span="8">
             <div class="un-handle-item">
-              <span class="font-medium">待付款订单</span>
+              <span class="font-medium">Pending Orders</span>
               <span style="float: right" class="color-danger">(10)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
-              <span class="font-medium">已完成订单</span>
+              <span class="font-medium">Completed Orders</span>
               <span style="float: right" class="color-danger">(10)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
-              <span class="font-medium">待确认收货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">待发货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">新缺货登记</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">待处理退款申请</span>
+              <span class="font-medium">Pending Confirm Orders</span>
               <span style="float: right" class="color-danger">(10)</span>
             </div>
           </el-col>
@@ -114,19 +87,39 @@
         <el-row :gutter="20">
           <el-col :span="8">
             <div class="un-handle-item">
-              <span class="font-medium">已发货订单</span>
+              <span class="font-medium">Pending shipment orders</span>
               <span style="float: right" class="color-danger">(10)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
-              <span class="font-medium">待处理退货订单</span>
+              <span class="font-medium">Registration New Stockouts</span>
               <span style="float: right" class="color-danger">(10)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
-              <span class="font-medium">广告位即将到期</span>
+              <span class="font-medium">Pending Refund Requests</span>
+              <span style="float: right" class="color-danger">(10)</span>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="8">
+            <div class="un-handle-item">
+              <span class="font-medium">Shipped Orders</span>
+              <span style="float: right" class="color-danger">(10)</span>
+            </div>
+          </el-col>
+          <el-col :span="8">
+            <div class="un-handle-item">
+              <span class="font-medium">Pending Return Orders</span>
+              <span style="float: right" class="color-danger">(10)</span>
+            </div>
+          </el-col>
+          <el-col :span="8">
+            <div class="un-handle-item">
+              <span class="font-medium">Advertising Danger</span>
               <span style="float: right" class="color-danger">(10)</span>
             </div>
           </el-col>
@@ -137,7 +130,7 @@
       <el-row :gutter="20">
         <el-col :span="12">
           <div class="out-border">
-            <div class="layout-title">商品总览</div>
+            <div class="layout-title">Product Overview</div>
             <div style="padding: 40px">
               <el-row>
                 <el-col :span="6" class="color-danger overview-item-value">100</el-col>
@@ -146,17 +139,17 @@
                 <el-col :span="6" class="color-danger overview-item-value">500</el-col>
               </el-row>
               <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">已下架</el-col>
-                <el-col :span="6" class="overview-item-title">已上架</el-col>
-                <el-col :span="6" class="overview-item-title">库存紧张</el-col>
-                <el-col :span="6" class="overview-item-title">全部商品</el-col>
+                <el-col :span="6" class="overview-item-title">Off-Shelves</el-col>
+                <el-col :span="6" class="overview-item-title">On-Shelves</el-col>
+                <el-col :span="6" class="overview-item-title">Tight Stocks</el-col>
+                <el-col :span="6" class="overview-item-title">All Products</el-col>
               </el-row>
             </div>
           </div>
         </el-col>
         <el-col :span="12">
           <div class="out-border">
-            <div class="layout-title">用户总览</div>
+            <div class="layout-title">Supermarket Overview</div>
             <div style="padding: 40px">
               <el-row>
                 <el-col :span="6" class="color-danger overview-item-value">100</el-col>
@@ -165,10 +158,10 @@
                 <el-col :span="6" class="color-danger overview-item-value">5000</el-col>
               </el-row>
               <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">今日新增</el-col>
-                <el-col :span="6" class="overview-item-title">昨日新增</el-col>
-                <el-col :span="6" class="overview-item-title">本月新增</el-col>
-                <el-col :span="6" class="overview-item-title">会员总数</el-col>
+                <el-col :span="6" class="overview-item-title">New This Month</el-col>
+                <el-col :span="6" class="overview-item-title">New Last Month</el-col>
+                <el-col :span="6" class="overview-item-title">New This Tear</el-col>
+                <el-col :span="6" class="overview-item-title">In Total</el-col>
               </el-row>
             </div>
           </div>
@@ -176,40 +169,40 @@
       </el-row>
     </div>
     <div class="statistics-layout">
-      <div class="layout-title">订单统计</div>
+      <div class="layout-title">Order Statistics</div>
       <el-row>
         <el-col :span="4">
           <div style="padding: 20px">
             <div>
-              <div style="color: #909399;font-size: 14px">本月订单总数</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">10000</div>
+              <div style="color: #909399;font-size: 14px">Total orders for the month</div>
+              <div style="color: #606266;font-size: 20px;padding: 8px 0">10000</div>
               <div>
                 <span class="color-success" style="font-size: 14px">+10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上月</span>
+                <span style="color: #C0C4CC;font-size: 14px">compared to last month</span>
               </div>
             </div>
             <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">本周订单总数</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">1000</div>
+              <div style="color: #909399;font-size: 14px">Total orders for the week</div>
+              <div style="color: #606266;font-size: 20px;padding: 8px 0">1000</div>
               <div>
                 <span class="color-danger" style="font-size: 14px">-10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上周</span>
+                <span style="color: #C0C4CC;font-size: 14px">compared to last week</span>
               </div>
             </div>
             <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">本月销售总额</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">100000</div>
+              <div style="color: #909399;font-size: 14px">Total sales for the month</div>
+              <div style="color: #606266;font-size: 20px;padding: 8px 0">100000</div>
               <div>
                 <span class="color-success" style="font-size: 14px">+10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上月</span>
+                <span style="color: #C0C4CC;font-size: 14px">compared to last month</span>
               </div>
             </div>
             <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">本周销售总额</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">50000</div>
+              <div style="color: #909399;font-size: 14px">Total sales for the week</div>
+              <div style="color: #606266;font-size: 20px;padding: 8px 0">50000</div>
               <div>
                 <span class="color-danger" style="font-size: 14px">-10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上周</span>
+                <span style="color: #C0C4CC;font-size: 14px">Compared to last week</span>
               </div>
             </div>
           </div>
@@ -223,7 +216,7 @@
               type="daterange"
               align="right"
               unlink-panels
-              range-separator="至"
+              range-separator="to"
               start-placeholder="开始日期"
               end-placeholder="结束日期"
               @change="handleDateChange"
@@ -252,21 +245,21 @@
   const DATA_FROM_BACKEND = {
     columns: ['date', 'orderCount','orderAmount'],
     rows: [
-      {date: '2018-11-01', orderCount: 10, orderAmount: 1093},
-      {date: '2018-11-02', orderCount: 20, orderAmount: 2230},
-      {date: '2018-11-03', orderCount: 33, orderAmount: 3623},
-      {date: '2018-11-04', orderCount: 50, orderAmount: 6423},
-      {date: '2018-11-05', orderCount: 80, orderAmount: 8492},
-      {date: '2018-11-06', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-07', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-08', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-09', orderCount: 50, orderAmount: 5293},
-      {date: '2018-11-10', orderCount: 30, orderAmount: 3293},
-      {date: '2018-11-11', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-12', orderCount: 80, orderAmount: 8293},
-      {date: '2018-11-13', orderCount: 100, orderAmount: 10293},
-      {date: '2018-11-14', orderCount: 10, orderAmount: 1293},
-      {date: '2018-11-15', orderCount: 40, orderAmount: 4293}
+      {date: '2024-02-01', orderCount: 10, orderAmount: 1093},
+      {date: '2024-02-02', orderCount: 20, orderAmount: 2230},
+      {date: '2024-02-03', orderCount: 33, orderAmount: 3623},
+      {date: '2024-02-04', orderCount: 50, orderAmount: 6423},
+      {date: '2024-02-05', orderCount: 80, orderAmount: 8492},
+      {date: '2024-02-06', orderCount: 60, orderAmount: 6293},
+      {date: '2024-02-07', orderCount: 20, orderAmount: 2293},
+      {date: '2024-02-08', orderCount: 60, orderAmount: 6293},
+      {date: '2024-02-09', orderCount: 50, orderAmount: 5293},
+      {date: '2024-02-10', orderCount: 30, orderAmount: 3293},
+      {date: '2024-02-11', orderCount: 20, orderAmount: 2293},
+      {date: '2024-02-12', orderCount: 80, orderAmount: 8293},
+      {date: '2024-02-13', orderCount: 100, orderAmount: 10293},
+      {date: '2024-02-14', orderCount: 10, orderAmount: 1293},
+      {date: '2024-02-15', orderCount: 40, orderAmount: 4293}
     ]
   };
   export default {
@@ -275,23 +268,23 @@
       return {
         pickerOptions: {
           shortcuts: [{
-            text: '最近一周',
+            text: 'This week',
             onClick(picker) {
               const end = new Date();
               let start = new Date();
-              start.setFullYear(2018);
-              start.setMonth(10);
+              start.setFullYear(2024);
+              start.setMonth(1);
               start.setDate(1);
               end.setTime(start.getTime() + 3600 * 1000 * 24 * 7);
               picker.$emit('pick', [start, end]);
             }
           }, {
-            text: '最近一月',
+            text: 'This month',
             onClick(picker) {
               const end = new Date();
               let start = new Date();
-              start.setFullYear(2018);
-              start.setMonth(10);
+              start.setFullYear(2024);
+              start.setMonth(1);
               start.setDate(1);
               end.setTime(start.getTime() + 3600 * 1000 * 24 * 30);
               picker.$emit('pick', [start, end]);
@@ -325,8 +318,8 @@
       },
       initOrderCountDate(){
         let start = new Date();
-        start.setFullYear(2018);
-        start.setMonth(10);
+        start.setFullYear(2024);
+        start.setMonth(1);
         start.setDate(1);
         const end = new Date();
         end.setTime(start.getTime() + 1000 * 60 * 60 * 24 * 7);
@@ -428,6 +421,7 @@
   }
 
   .overview-item-title {
+    font-size: 14px;
     margin-top: 10px;
     text-align: center;
   }
