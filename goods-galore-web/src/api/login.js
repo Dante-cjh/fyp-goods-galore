@@ -11,12 +11,15 @@ export function login(username, password) {
   })
 }
 
-export function register(username, password) {
+export function register(username, nickName, email, password) {
   return request({
     url: '/admin/register',
     method: 'post',
     data: {
       username,
+      icon: 'https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png',
+      email,
+      nickName,
       password
     }
   })

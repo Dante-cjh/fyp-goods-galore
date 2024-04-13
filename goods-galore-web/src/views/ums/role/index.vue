@@ -77,7 +77,7 @@
             <el-button size="mini"
                        type="text"
                        @click="handleUpdate(scope.$index, scope.row)">
-              编辑
+              Edit
             </el-button>
             <el-button size="mini"
                        type="text"

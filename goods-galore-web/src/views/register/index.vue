@@ -1,20 +1,34 @@
 <template>
   <div>
     <el-card class="register-form-layout">
-      <el-form :model="registerForm" :rules="rules" ref="registerForm" label-position="right" label-width="100px">
+      <el-form :model="admin" :rules="rules" ref="admin" label-position="right" label-width="100px">
         <div style="text-align: center">
           <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
         </div>
         <h2 class="login-title color-main">mall-register-web</h2>
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="registerForm.username">
+        <el-form-item label="Account" prop="username">
+          <el-input v-model="admin.username">
             <span slot="prefix">
               <svg-icon icon-class="user" class="color-main"></svg-icon>
             </span>
           </el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input :type="pwdType" v-model="registerForm.password">
+        <el-form-item label="Name" prop="nickname">
+          <el-input v-model="admin.nickName">
+            <span slot="prefix">
+              <svg-icon icon-class="user" class="color-main"></svg-icon>
+            </span>
+          </el-input>
+        </el-form-item>
+        <el-form-item label="Email" prop="email">
+          <el-input v-model="admin.email">
+            <span slot="prefix">
+              <svg-icon icon-class="form" class="color-main"></svg-icon>
+            </span>
+          </el-input>
+        </el-form-item>
+        <el-form-item label="Password" prop="password">
+          <el-input :type="pwdType" v-model="admin.password">
             <span slot="prefix">
               <svg-icon icon-class="password" class="color-main"></svg-icon>
             </span>
@@ -23,8 +37,8 @@
             </span>
           </el-input>
         </el-form-item>
-        <el-form-item label="确认密码" prop="confirmPassword">
-          <el-input :type="pwdType" v-model="registerForm.confirmPassword">
+        <el-form-item label="ConfirmPwd" prop="confirmPassword">
+          <el-input :type="pwdType" v-model="admin.confirmPassword">
             <span slot="prefix">
               <svg-icon icon-class="password" class="color-main"></svg-icon>
             </span>
@@ -36,6 +50,9 @@
         <el-form-item>
           <el-button type="primary" @click="handleRegister">Register</el-button>
         </el-form-item>
+        <div>
+          <el-link type="primary" @click="$router.push({ path: '/login' })">I have an account?</el-link>
+        </div>
       </el-form>
     </el-card>
     <img :src="login_center_bg" class="login-center-layout">
@@ -46,34 +63,41 @@
 
 import login_center_bg from '@/assets/images/login_center_bg.png';
 
+const defaultAdmin = {
+  id: null,
+  username: null,
+  password: null,
+  confirmPassword: null,
+  nickName: null,
+  email: null,
+  note: null,
+  status: 1
+};
+
 export default {
   name: 'Register',
   data() {
     const validateConfirmPassword = (rule, value, callback) => {
-      if (value !== this.registerForm.password) {
-        callback(new Error('两次输入的密码不一致!'));
+      if (value !== this.admin.password) {
+        callback(new Error('The passwords entered twice do not match!'));
       } else {
         callback();
       }
     };
 
     return {
-      registerForm: {
-        username: '',
-        password: '',
-        confirmPassword: ''
-      },
+      admin: Object.assign({}, defaultAdmin),
       rules: {
         username: [
-          {required: true, message: '请输入用户名', trigger: 'blur'},
-          {min: 3, max: 20, message: '用户名长度在 3 到 20 个字符', trigger: 'blur'}
+          {required: true, message: 'Please enter username', trigger: 'blur'},
+          {min: 3, max: 20, message: 'Username length from 3 to 20 characters', trigger: 'blur'}
         ],
         password: [
-          {required: true, message: '请输入密码', trigger: 'blur'},
-          {min: 6, message: '密码长度不能少于 6 个字符', trigger: 'blur'}
+          {required: true, message: 'Please enter password', trigger: 'blur'},
+          {min: 6, message: 'Password length must not be less than 6 characters', trigger: 'blur'}
         ],
         confirmPassword: [
-          {required: true, message: '请再次输入密码', trigger: 'blur'},
+          {required: true, message: 'Please enter password again', trigger: 'blur'},
           {validator: validateConfirmPassword, trigger: 'blur'}
         ]
       },
@@ -92,12 +116,12 @@ export default {
       }
     },
     handleRegister() {
-      this.$refs.registerForm.validate((valid) => {
+      this.$refs.admin.validate((valid) => {
         if (valid) {
           // 这里处理注册逻辑
-          console.log('注册信息：', this.registerForm);
+          console.log('注册信息：', this.admin);
           this.loading = true;
-          this.$store.dispatch('Register', this.registerForm).then(() => {
+          this.$store.dispatch('Register', this.admin).then(() => {
             this.loading = false;
             this.$router.push({path: '/login'})
           }).catch(() => {

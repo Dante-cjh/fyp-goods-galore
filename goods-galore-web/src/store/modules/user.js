@@ -45,7 +45,7 @@ const user = {
     Register({ commit }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
-        register(username, userInfo.password).then(response => {
+        register(username, userInfo.nickName, userInfo.email, userInfo.password).then(response => {
           console.log("注册成功",response)
           resolve()
         }).catch(error => {
