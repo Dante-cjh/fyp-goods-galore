@@ -15,6 +15,7 @@
         <module>goods-galore-common</module>
         <module>goods-galore-security</module>
         <module>goods-galore-admin</module>
+        <module>goods-galore-portal</module>
     </modules>
 
     <parent>
