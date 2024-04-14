@@ -48,7 +48,7 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: '/ums/admin',
     name: 'ums',
-    meta: {title: '权限', icon: 'ums'},
+    meta: {title: 'Right', icon: 'ums'},
     children: [
       {
         path: 'admin',
@@ -66,47 +66,47 @@ export const asyncRouterMap = [
         path: 'allocMenu',
         name: 'allocMenu',
         component: () => import('@/views/ums/role/allocMenu'),
-        meta: {title: '分配菜单'},
+        meta: {title: 'Assign Menu'},
         hidden: true
       },
       {
         path: 'allocResource',
         name: 'allocResource',
         component: () => import('@/views/ums/role/allocResource'),
-        meta: {title: '分配资源'},
+        meta: {title: 'Assign Resource'},
         hidden: true
       },
       {
         path: 'menu',
         name: 'menu',
         component: () => import('@/views/ums/menu/index'),
-        meta: {title: '菜单列表', icon: 'ums-menu'}
+        meta: {title: 'Menu List', icon: 'ums-menu'}
       },
       {
         path: 'addMenu',
         name: 'addMenu',
         component: () => import('@/views/ums/menu/add'),
-        meta: {title: '添加菜单'},
+        meta: {title: 'Add Menu'},
         hidden: true
       },
       {
         path: 'updateMenu',
         name: 'updateMenu',
         component: () => import('@/views/ums/menu/update'),
-        meta: {title: '修改菜单'},
+        meta: {title: 'Update Menu'},
         hidden: true
       },
       {
         path: 'resource',
         name: 'resource',
         component: () => import('@/views/ums/resource/index'),
-        meta: {title: '资源列表', icon: 'ums-resource'}
+        meta: {title: 'Resource List', icon: 'ums-resource'}
       },
       {
         path: 'resourceCategory',
         name: 'resourceCategory',
         component: () => import('@/views/ums/resource/categoryList'),
-        meta: {title: '资源分类'},
+        meta: {title: 'Category List'},
         hidden: true
       }
     ]
@@ -116,92 +116,146 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: '/pms/product',
     name: 'pms',
-    meta: {title: '商品', icon: 'product'},
+    meta: {title: 'Product', icon: 'product'},
     children: [{
       path: 'product',
       name: 'product',
       component: () => import('@/views/pms/product/index'),
-      meta: {title: '商品列表', icon: 'product-list'}
+      meta: {title: 'Product List', icon: 'product-list'}
     },
       {
         path: 'addProduct',
         name: 'addProduct',
         component: () => import('@/views/pms/product/add'),
-        meta: {title: '添加商品', icon: 'product-add'}
+        meta: {title: 'Add Product', icon: 'product-add'}
       },
       {
         path: 'updateProduct',
         name: 'updateProduct',
         component: () => import('@/views/pms/product/update'),
-        meta: {title: '修改商品', icon: 'product-add'},
+        meta: {title: 'Update Product', icon: 'product-add'},
         hidden: true
       },
       {
         path: 'productCate',
         name: 'productCate',
         component: () => import('@/views/pms/productCate/index'),
-        meta: {title: '商品分类', icon: 'product-cate'}
+        meta: {title: 'Product Category', icon: 'product-cate'}
       },
       {
         path: 'addProductCate',
         name: 'addProductCate',
         component: () => import('@/views/pms/productCate/add'),
-        meta: {title: '添加商品分类'},
+        meta: {title: 'Add Category'},
         hidden: true
       },
       {
         path: 'updateProductCate',
         name: 'updateProductCate',
         component: () => import('@/views/pms/productCate/update'),
-        meta: {title: '修改商品分类'},
+        meta: {title: 'Update Category'},
         hidden: true
       },
       {
         path: 'productAttr',
         name: 'productAttr',
         component: () => import('@/views/pms/productAttr/index'),
-        meta: {title: '商品类型', icon: 'product-attr'}
+        meta: {title: 'Product Attribute', icon: 'product-attr'}
       },
       {
         path: 'productAttrList',
         name: 'productAttrList',
         component: () => import('@/views/pms/productAttr/productAttrList'),
-        meta: {title: '商品属性列表'},
+        meta: {title: 'Attribute List'},
         hidden: true
       },
       {
         path: 'addProductAttr',
         name: 'addProductAttr',
         component: () => import('@/views/pms/productAttr/addProductAttr'),
-        meta: {title: '添加商品属性'},
+        meta: {title: 'Add Attribute'},
         hidden: true
       },
       {
         path: 'updateProductAttr',
         name: 'updateProductAttr',
         component: () => import('@/views/pms/productAttr/updateProductAttr'),
-        meta: {title: '修改商品属性'},
+        meta: {title: 'Update Attribute'},
         hidden: true
       },
       {
         path: 'brand',
         name: 'brand',
         component: () => import('@/views/pms/brand/index'),
-        meta: {title: '品牌管理', icon: 'product-brand'}
+        meta: {title: 'Brand List', icon: 'product-brand'}
       },
       {
         path: 'addBrand',
         name: 'addBrand',
         component: () => import('@/views/pms/brand/add'),
-        meta: {title: '添加品牌'},
+        meta: {title: 'Add Brand'},
         hidden: true
       },
       {
         path: 'updateBrand',
         name: 'updateBrand',
         component: () => import('@/views/pms/brand/update'),
-        meta: {title: '编辑品牌'},
+        meta: {title: 'Update Brand'},
         hidden: true
+      }
+    ]
+  },
+  {
+    path: '/oms',
+    component: Layout,
+    redirect: '/oms/order',
+    name: 'oms',
+    meta: {title: 'Order', icon: 'order'},
+    children: [
+      {
+        path: 'order',
+        name: 'order',
+        component: () => import('@/views/oms/order/index'),
+        meta: {title: 'Order List', icon: 'product-list'}
+      },
+      {
+        path: 'orderDetail',
+        name: 'orderDetail',
+        component: () => import('@/views/oms/order/orderDetail'),
+        meta: {title: 'Order Detail'},
+        hidden:true
+      },
+      {
+        path: 'deliverOrderList',
+        name: 'deliverOrderList',
+        component: () => import('@/views/oms/order/deliverOrderList'),
+        meta: {title: 'Delivery List'},
+        hidden:true
+      },
+      {
+        path: 'orderSetting',
+        name: 'orderSetting',
+        component: () => import('@/views/oms/order/setting'),
+        meta: {title: 'Order Setting', icon: 'order-setting'}
+      },
+      {
+        path: 'returnApply',
+        name: 'returnApply',
+        component: () => import('@/views/oms/apply/index'),
+        meta: {title: 'Return Application', icon: 'order-return'}
+      },
+      {
+        path: 'returnReason',
+        name: 'returnReason',
+        component: () => import('@/views/oms/apply/reason'),
+        meta: {title: 'Return Reason', icon: 'order-return-reason'}
+      },
+      {
+        path: 'returnApplyDetail',
+        name: 'returnApplyDetail',
+        component: () => import('@/views/oms/apply/applyDetail'),
+        meta: {title: 'Return Reason Detail'},
+        hidden:true
       }
     ]
   },

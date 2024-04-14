@@ -212,19 +212,19 @@
       </el-pagination>
     </div>
     <el-dialog
-      title="编辑货品信息"
+      title="Edit Sku"
       :visible.sync="editSkuInfo.dialogVisible"
       width="40%">
       <span>Product SN:</span>
       <span>{{editSkuInfo.productSn}}</span>
-      <el-input placeholder="按sku编号搜索" v-model="editSkuInfo.keyword" size="small" style="width: 50%;margin-left: 20px">
+      <el-input placeholder="Search by SKU" v-model="editSkuInfo.keyword" size="small" style="width: 50%;margin-left: 20px">
         <el-button slot="append" icon="el-icon-search" @click="handleSearchEditSku"></el-button>
       </el-input>
       <el-table style="width: 100%;margin-top: 20px"
                 :data="editSkuInfo.stockList"
                 border>
         <el-table-column
-          label="SKU编号"
+          label="SKU No."
           align="center">
           <template slot-scope="scope">
             <el-input v-model="scope.row.skuCode"></el-input>
@@ -240,7 +240,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="销售价格"
+          label="Price"
           width="80"
           align="center">
           <template slot-scope="scope">
@@ -248,7 +248,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="商品库存"
+          label="Stock"
           width="80"
           align="center">
           <template slot-scope="scope">
@@ -256,7 +256,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="库存预警值"
+          label="Alert Stock"
           width="100"
           align="center">
           <template slot-scope="scope">
