@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * 限时购商品关联管理Service实现类
- * Created by macro on 2018/11/16.
+ * Created by Jiahan Chen
  */
 @Service
 public class SmsFlashPromotionProductRelationServiceImpl implements SmsFlashPromotionProductRelationService {

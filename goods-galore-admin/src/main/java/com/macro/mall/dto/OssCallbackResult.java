@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * OSS上传文件的回调结果
- * Created by macro on 2018/5/17.
+ * Created by Jiahan Chen
  */
 @Data
 @EqualsAndHashCode

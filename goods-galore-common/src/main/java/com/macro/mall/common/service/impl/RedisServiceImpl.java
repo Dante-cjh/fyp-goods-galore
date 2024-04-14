@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Redis操作Service实现类
- * Created by macro on 2020/3/3.
+ * Created by Jiahan Chen
  */
 public class RedisServiceImpl implements RedisService {
     @Autowired

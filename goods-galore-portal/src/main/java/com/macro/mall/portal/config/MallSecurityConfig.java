@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * mall-security模块相关配置
- * Created by macro on 2019/11/5.
+ * Created by Jiahan Chen
  */
 @Configuration
 public class MallSecurityConfig {

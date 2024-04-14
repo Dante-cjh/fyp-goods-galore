@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Oss对象存储管理Service
- * Created by macro on 2018/5/17.
+ * Created by Jiahan Chen
  */
 public interface OssService {
     /**

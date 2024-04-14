@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 商品属性管理自定义Dao
- * Created by macro on 2018/5/23.
+ * Created by Jiahan Chen
  */
 public interface PmsProductAttributeDao {
     /**

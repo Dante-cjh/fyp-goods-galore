@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * 会员商品浏览历史记录
- * Created by macro on 2018/8/3.
+ * Created by Jiahan Chen
  */
 @Getter
 @Setter

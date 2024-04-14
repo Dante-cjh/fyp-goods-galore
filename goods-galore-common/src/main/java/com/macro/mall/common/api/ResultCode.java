@@ -2,7 +2,7 @@ package com.macro.mall.common.api;
 
 /**
  * API返回码封装类
- * Created by macro on 2019/4/19.
+ * Created by Jiahan Chen
  */
 public enum ResultCode implements IErrorCode {
     SUCCESS(200, "Successful operation"),

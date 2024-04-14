@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 会员商品收藏管理Controller
- * Created by macro on 2018/8/2.
+ * Created by Jiahan Chen
  */
 @Controller
 @Api(tags = "MemberCollectionController")

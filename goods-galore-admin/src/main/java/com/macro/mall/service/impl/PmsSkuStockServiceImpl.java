@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * 商品SKU库存管理Service实现类
- * Created by macro on 2018/4/27.
+ * Created by Jiahan Chen
  */
 @Service
 public class PmsSkuStockServiceImpl implements PmsSkuStockService {

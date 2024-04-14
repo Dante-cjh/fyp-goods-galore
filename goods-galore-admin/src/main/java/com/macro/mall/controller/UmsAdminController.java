@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 
 /**
  * 后台用户管理Controller
- * Created by macro on 2024/4/26.
+ * Created by Jiahan Chen
  */
 @Controller
 @Api(tags = "UmsAdminController")
@@ -49,7 +49,11 @@ public class UmsAdminController {
     @ResponseBody
     public CommonResult<UmsAdmin> register(@Validated @RequestBody UmsAdminParam umsAdminParam) {
         UmsAdmin umsAdmin = adminService.register(umsAdminParam);
-        if (umsAdmin == null) {
+        // 分配role为visitor
+        List<Long> roleIds = CollUtil.newArrayList(7L);
+        int count = adminService.updateRole(umsAdmin.getId(), roleIds);
+
+        if (umsAdmin == null || count <= 0) {
             return CommonResult.failed();
         }
         return CommonResult.success(umsAdmin);

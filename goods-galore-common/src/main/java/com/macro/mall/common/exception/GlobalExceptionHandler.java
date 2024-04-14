@@ -14,7 +14,7 @@ import java.sql.SQLSyntaxErrorException;
 
 /**
  * 全局异常处理类
- * Created by macro on 2020/2/27.
+ * Created by Jiahan Chen
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {

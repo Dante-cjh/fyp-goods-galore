@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * 后台资源管理Controller
- * Created by macro on 2020/2/4.
+ * Created by Jiahan Chen
  */
 @Controller
 @Api(tags = "UmsResourceController")

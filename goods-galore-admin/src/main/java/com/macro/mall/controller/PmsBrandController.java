@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * 商品品牌管理Controller
- * Created by macro on 2018/4/26.
+ * Created by Jiahan Chen
  */
 @Controller
 @Api(tags = "PmsBrandController")

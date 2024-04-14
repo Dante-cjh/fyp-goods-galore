@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 /**
  * 后台用户缓存操作Service实现类
- * Created by macro on 2020/3/13.
+ * Created by Jiahan Chen
  */
 @Service
 public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {

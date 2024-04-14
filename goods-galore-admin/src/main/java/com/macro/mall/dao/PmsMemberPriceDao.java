@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 会员价格管理自定义Dao
- * Created by macro on 2018/4/26.
+ * Created by Jiahan Chen
  */
 public interface PmsMemberPriceDao {
     /**

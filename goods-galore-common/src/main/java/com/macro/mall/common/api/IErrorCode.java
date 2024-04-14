@@ -2,7 +2,7 @@ package com.macro.mall.common.api;
 
 /**
  * API返回码接口
- * Created by macro on 2019/4/19.
+ * Created by Jiahan Chen
  */
 public interface IErrorCode {
     /**

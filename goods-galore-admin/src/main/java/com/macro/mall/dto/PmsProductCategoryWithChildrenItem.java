@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 包含子级分类的商品分类
- * Created by macro on 2018/5/25.
+ * Created by Jiahan Chen
  */
 public class PmsProductCategoryWithChildrenItem extends PmsProductCategory {
     @Getter

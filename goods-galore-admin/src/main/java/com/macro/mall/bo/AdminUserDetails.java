@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  * SpringSecurity需要的用户信息封装类
- * Created by macro on 2018/4/26.
+ * Created by Jiahan Chen
  */
 public class AdminUserDetails implements UserDetails {
     //后台用户

@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * 会员浏览记录管理Service实现类
- * Created by macro on 2018/8/3.
+ * Created by Jiahan Chen
  */
 @Service
 public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {

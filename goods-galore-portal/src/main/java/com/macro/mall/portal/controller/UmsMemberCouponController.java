@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * 会员优惠券管理Controller
- * Created by macro on 2018/8/29.
+ * Created by Jiahan Chen
  */
 @Controller
 @Api(tags = "UmsMemberCouponController")

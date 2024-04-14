@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * 商品SKU库存管理Controller
- * Created by macro on 2018/4/27.
+ * Created by Jiahan Chen
  */
 @Controller
 @Api(tags = "PmsSkuStockController")

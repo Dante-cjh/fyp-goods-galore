@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 取消超时订单并解锁库存的定时器
- * Created by macro on 2018/8/24.
+ * Created by Jiahan Chen
  */
 //@Component
 public class OrderTimeOutCancelTask {

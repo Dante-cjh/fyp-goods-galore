@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * 会员登录注册管理Controller
- * Created by macro on 2018/8/3.
+ * Created by Jiahan Chen
  */
 @Controller
 @Api(tags = "UmsMemberController")

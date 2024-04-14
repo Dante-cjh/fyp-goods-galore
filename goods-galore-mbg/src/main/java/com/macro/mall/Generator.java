@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * MBG代码生成工具
- * Created by macro on 2018/4/26.
+ * Created by Jiahan Chen
  */
 public class Generator {
     public static void main(String[] args) throws Exception {

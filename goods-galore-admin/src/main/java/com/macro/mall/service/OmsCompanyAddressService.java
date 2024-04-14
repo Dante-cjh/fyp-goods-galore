@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 收货地址管理Service
- * Created by macro on 2018/10/18.
+ * Created by Jiahan Chen
  */
 public interface OmsCompanyAddressService {
     /**

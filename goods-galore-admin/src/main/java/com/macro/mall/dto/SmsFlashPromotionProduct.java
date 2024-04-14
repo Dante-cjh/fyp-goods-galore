@@ -8,7 +8,7 @@ import lombok.Setter;
 
 /**
  * 限时购商品信息封装
- * Created by macro on 2018/11/16.
+ * Created by Jiahan Chen
  */
 public class SmsFlashPromotionProduct extends SmsFlashPromotionProductRelation{
     @Getter

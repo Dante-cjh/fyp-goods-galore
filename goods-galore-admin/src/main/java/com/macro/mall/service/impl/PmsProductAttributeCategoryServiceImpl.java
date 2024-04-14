@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * 商品属性分类管理Service实现类
- * Created by macro on 2018/4/26.
+ * Created by Jiahan Chen
  */
 @Service
 public class PmsProductAttributeCategoryServiceImpl implements PmsProductAttributeCategoryService {

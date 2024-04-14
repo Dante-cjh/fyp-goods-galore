@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  * 会员商品收藏Repository
- * Created by macro on 2018/8/2.
+ * Created by Jiahan Chen
  */
 public interface MemberProductCollectionRepository extends MongoRepository<MemberProductCollection, String> {
     /**

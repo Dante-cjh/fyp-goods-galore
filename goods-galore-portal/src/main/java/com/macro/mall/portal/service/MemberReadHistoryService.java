@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 会员浏览记录管理Service
- * Created by macro on 2018/8/3.
+ * Created by Jiahan Chen
  */
 public interface MemberReadHistoryService {
     /**

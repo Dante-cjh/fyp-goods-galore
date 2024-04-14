@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * 首页内容管理Service实现类
- * Created by macro on 2019/1/28.
+ * Created by Jiahan Chen
  */
 @Service
 public class HomeServiceImpl implements HomeService {

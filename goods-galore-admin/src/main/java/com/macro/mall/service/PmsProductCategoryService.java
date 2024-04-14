@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 商品分类管理Service
- * Created by macro on 2018/4/26.
+ * Created by Jiahan Chen
  */
 public interface PmsProductCategoryService {
     /**
