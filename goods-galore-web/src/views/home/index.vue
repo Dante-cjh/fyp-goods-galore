@@ -1,32 +1,6 @@
 <template>
   <div class="app-container">
     <div class="address-layout">
-<!--      <el-row :gutter="20">-->
-<!--        <el-col :span="6">-->
-<!--          <div class="out-border">-->
-<!--            <div class="layout-title">学习教程</div>-->
-<!--            <div class="color-main address-content">-->
-<!--              <a href="https://www.macrozheng.com" target="_blank">mall学习教程</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="6">-->
-<!--          <div class="out-border">-->
-<!--            <div class="layout-title">视频教程</div>-->
-<!--            <div class="color-main address-content">-->
-<!--              <a href="https://www.macrozheng.com/mall/catalog/mall_video.html" target="_blank">mall视频教程（2023）</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="6">-->
-<!--          <div class="out-border">-->
-<!--            <div class="layout-title">点Star支持项目</div>-->
-<!--            <div class="color-main address-content">-->
-<!--              <a href="https://github.com/macrozheng/mall" target="_blank">mall项目</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--      </el-row>-->
     </div>
     <div class="total-layout">
       <el-row :gutter="20">
@@ -34,29 +8,29 @@
           <div class="total-frame">
             <img :src="img_home_order" class="total-icon">
             <div class="total-title">Total Orders</div>
-            <div class="total-value">200</div>
+            <div class="total-value">10</div>
           </div>
         </el-col>
         <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_today_amount" class="total-icon">
             <div class="total-title">Total Sales</div>
-            <div class="total-value">￥5000.00</div>
+            <div class="total-value">￥2560.00</div>
           </div>
         </el-col>
         <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_yesterday_amount" class="total-icon">
             <div class="total-title">Last Total Sales</div>
-            <div class="total-value">￥5000.00</div>
+            <div class="total-value">￥2560.00</div>
           </div>
         </el-col>
         <el-col :span="6">
           <div class="total-frame">
             <svg-icon icon-class="total-week" class="total-icon">
             </svg-icon>
-            <div class="total-title">Total Sales Last 7 Days</div>
-            <div class="total-value">￥50000.00</div>
+            <div class="total-title">Total Last 7 Days</div>
+            <div class="total-value">￥2560.00</div>
           </div>
         </el-col>
       </el-row>
@@ -68,19 +42,19 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">Pending Orders</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">(1)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">Completed Orders</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">(2)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">Pending Confirm Orders</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">(2)</span>
             </div>
           </el-col>
         </el-row>
@@ -88,39 +62,19 @@
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">Pending shipment orders</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">(2)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
-              <span class="font-medium">Registration New Stockouts</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span class="font-medium">Shipped Orders</span>
+              <span style="float: right" class="color-danger">(3)</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="un-handle-item">
               <span class="font-medium">Pending Refund Requests</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">Shipped Orders</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">Pending Return Orders</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">Advertising Danger</span>
-              <span style="float: right" class="color-danger">(10)</span>
+              <span style="float: right" class="color-danger">(0)</span>
             </div>
           </el-col>
         </el-row>
@@ -133,16 +87,14 @@
             <div class="layout-title">Product Overview</div>
             <div style="padding: 40px">
               <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">400</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">50</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">500</el-col>
+                <el-col :span="8" class="color-danger overview-item-value">5</el-col>
+                <el-col :span="8" class="color-danger overview-item-value">17</el-col>
+                <el-col :span="8" class="color-danger overview-item-value">21</el-col>
               </el-row>
               <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">Off-Shelves</el-col>
-                <el-col :span="6" class="overview-item-title">On-Shelves</el-col>
-                <el-col :span="6" class="overview-item-title">Tight Stocks</el-col>
-                <el-col :span="6" class="overview-item-title">All Products</el-col>
+                <el-col :span="8" class="overview-item-title">Off-Shelves</el-col>
+                <el-col :span="8" class="overview-item-title">On-Shelves</el-col>
+                <el-col :span="8" class="overview-item-title">All Products</el-col>
               </el-row>
             </div>
           </div>
@@ -152,16 +104,14 @@
             <div class="layout-title">Supermarket Overview</div>
             <div style="padding: 40px">
               <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">200</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">1000</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">5000</el-col>
+                <el-col :span="6" class="color-danger overview-item-value">16</el-col>
+                <el-col :span="10" class="color-danger overview-item-value">15</el-col>
+                <el-col :span="6" class="color-danger overview-item-value">21</el-col>
               </el-row>
               <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">New This Month</el-col>
-                <el-col :span="6" class="overview-item-title">New Last Month</el-col>
-                <el-col :span="6" class="overview-item-title">New This Tear</el-col>
-                <el-col :span="6" class="overview-item-title">In Total</el-col>
+                <el-col :span="6" class="overview-item-title">New Product</el-col>
+                <el-col :span="10" class="overview-item-title">Recommend Product</el-col>
+                <el-col :span="6" class="overview-item-title">All Products</el-col>
               </el-row>
             </div>
           </div>
