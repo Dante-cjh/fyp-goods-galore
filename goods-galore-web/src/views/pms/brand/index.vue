@@ -144,11 +144,11 @@
       return {
         operates: [
           {
-            label: "显示品牌",
+            label: "Show Brand",
             value: "showBrand"
           },
           {
-            label: "隐藏品牌",
+            label: "Hide Brand",
             value: "hideBrand"
           }
         ],

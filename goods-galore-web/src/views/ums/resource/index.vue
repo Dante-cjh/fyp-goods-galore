@@ -23,10 +23,10 @@
           <el-form-item label="Resource Name:">
             <el-input v-model="listQuery.nameKeyword" class="input-width" placeholder="Resource Name" clearable></el-input>
           </el-form-item>
-          <el-form-item label="资源路径：">
+          <el-form-item label="Resource Url:">
             <el-input v-model="listQuery.urlKeyword" class="input-width" placeholder="Resource Url" clearable></el-input>
           </el-form-item>
-          <el-form-item label="资源分类：">
+          <el-form-item label="Classification:">
             <el-select v-model="listQuery.categoryId" placeholder="All" clearable class="input-width">
               <el-option v-for="item in categoryOptions"
                          :key="item.value"

@@ -84,13 +84,13 @@
                 v-loading="listLoading"
                 border>
         <el-table-column type="selection" width="60" align="center"></el-table-column>
-        <el-table-column label="No." width="100" align="center">
+        <el-table-column label="No." width="60" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="Image" width="120" align="center">
+        <el-table-column label="Image" width="100" align="center">
           <template slot-scope="scope"><img style="height: 80px" :src="scope.row.pic"></template>
         </el-table-column>
-        <el-table-column label="Name" align="center">
+        <el-table-column label="Name" width="180" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.name}}</p>
             <p>Brand:{{scope.row.brandName}}</p>
@@ -138,7 +138,7 @@
             <el-button type="primary" icon="el-icon-edit" @click="handleShowSkuEditDialog(scope.$index, scope.row)" circle></el-button>
           </template>
         </el-table-column>
-        <el-table-column label="Sales" width="100" align="center">
+        <el-table-column label="Sales" width="80" align="center">
           <template slot-scope="scope">{{scope.row.sale}}</template>
         </el-table-column>
         <el-table-column label="Status" width="100" align="center">
