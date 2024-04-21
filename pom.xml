@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>goods-galore-demo</module>
         <module>goods-galore-mbg</module>
         <module>goods-galore-common</module>
         <module>goods-galore-security</module>
