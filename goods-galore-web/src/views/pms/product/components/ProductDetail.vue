@@ -117,7 +117,6 @@
       return {
         active: 0,
         productParam: Object.assign({}, defaultProductParam),
-        // showStatus: [true, false, false, false]
         showStatus: [true, false, false]
       }
     },

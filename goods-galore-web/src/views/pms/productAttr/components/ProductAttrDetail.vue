@@ -14,39 +14,39 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="Categorized filter style:">
-        <el-radio-group v-model="productAttr.filterType">
-          <el-radio :label="0">original</el-radio>
-          <el-radio :label="1">color</el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="Whether to search:">
-        <el-radio-group v-model="productAttr.searchType">
-          <el-radio :label="0">No search required</el-radio>
-          <el-radio :label="1">keyword search</el-radio>
-          <el-radio :label="2">Scope search</el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="Product attribute association:">
-        <el-radio-group v-model="productAttr.relatedStatus">
-          <el-radio :label="1">Yes</el-radio>
-          <el-radio :label="0">No</el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="Is the attribute optional:">
+<!--      <el-form-item label="Categorized style:">-->
+<!--        <el-radio-group v-model="productAttr.filterType">-->
+<!--          <el-radio :label="0">original</el-radio>-->
+<!--          <el-radio :label="1">color</el-radio>-->
+<!--        </el-radio-group>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item label="Whether to search:">-->
+<!--        <el-radio-group v-model="productAttr.searchType">-->
+<!--          <el-radio :label="0">No search required</el-radio>-->
+<!--          <el-radio :label="1">keyword search</el-radio>-->
+<!--          <el-radio :label="2">Scope search</el-radio>-->
+<!--        </el-radio-group>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item label="Product attribute association:">-->
+<!--        <el-radio-group v-model="productAttr.relatedStatus">-->
+<!--          <el-radio :label="1">Yes</el-radio>-->
+<!--          <el-radio :label="0">No</el-radio>-->
+<!--        </el-radio-group>-->
+<!--      </el-form-item>-->
+      <el-form-item label="Attribute optional:">
         <el-radio-group v-model="productAttr.selectType">
           <el-radio :label="0">unique</el-radio>
           <el-radio :label="1">single-election</el-radio>
           <el-radio :label="2">multi-election</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="Attribute value entry method:">
+      <el-form-item label="Value entry method:">
         <el-radio-group v-model="productAttr.inputType">
           <el-radio :label="0">manual entry</el-radio>
           <el-radio :label="1">Select from list below</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="Attribute Value Optional Values List:">
+      <el-form-item label="Optional Values List:">
         <el-input :autosize="true" type="textarea" v-model="inputListFormat"></el-input>
       </el-form-item>
       <el-form-item label="Whether to support manual addition:">
