@@ -3,9 +3,8 @@
     <el-card class="register-form-layout">
       <el-form :model="admin" :rules="rules" ref="admin" label-position="right" label-width="100px">
         <div style="text-align: center">
-          <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
+          <el-image :src="url" :fit="fill" style="width: 350px"></el-image>
         </div>
-        <h2 class="login-title color-main">Goods-galore-web</h2>
         <el-form-item label="Account" prop="username">
           <el-input v-model="admin.username">
             <span slot="prefix">
@@ -104,7 +103,8 @@ export default {
       loading: false,
       pwdType: 'password',
       login_center_bg,
-      supportDialogVisible:false
+      supportDialogVisible:false,
+      url: 'http://localhost:9000/mall/login/goods-galore.png'
     };
   },
   methods: {

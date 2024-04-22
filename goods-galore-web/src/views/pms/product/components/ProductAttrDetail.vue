@@ -154,8 +154,8 @@
         </el-tabs>
       </el-form-item>
       <el-form-item style="text-align: center">
-        <el-button size="medium" @click="handlePrev">Previous step, product info</el-button>
-        <el-button type="primary" size="medium" @click="handleNext">Next, product association</el-button>
+        <el-button size="medium" @click="handlePrev">Previous step, product attributes</el-button>
+        <el-button type="primary" size="medium" @click="handleFinishCommit">Done, submit the product</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -605,10 +605,10 @@
       handlePrev() {
         this.$emit('prevStep')
       },
-      handleNext() {
+      handleFinishCommit(){
         this.mergeProductAttrValue();
         this.mergeProductAttrPics();
-        this.$emit('nextStep')
+        this.$emit('finishCommit',this.isEdit);
       }
     }
   }

@@ -17,10 +17,7 @@
 			<text class="cell-tit">Message receive</text>
 			<switch checked color="#fa436a" @change="switchChange" />
 		</view>
-<!-- 		<view class="list-cell m-t b-b" @click="navTo('clear cache')" hover-class="cell-hover" :hover-stay-time="50">
-			<text class="cell-tit">Clear Cache</text>
-			<text class="cell-more yticon icon-you"></text>
-		</view> -->
+		
 		<view class="list-cell b-b" @click="navToOuter('https://github.com/Dante-cjh/fyp-goods-galore')" hover-class="cell-hover" :hover-stay-time="50">
 			<text class="cell-tit">About Goods Galore</text>
 			<text class="cell-more yticon icon-you"></text>

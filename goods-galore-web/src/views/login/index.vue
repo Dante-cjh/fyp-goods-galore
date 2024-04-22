@@ -7,9 +7,8 @@
                ref="loginForm"
                label-position="left">
         <div style="text-align: center">
-          <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
+          <el-image :src="url" :fit="fill"></el-image>
         </div>
-        <h2 class="login-title color-main">Goods-Galore-web</h2>
         <el-form-item prop="username">
           <el-input name="username"
                     type="text"
@@ -84,7 +83,8 @@
         loading: false,
         pwdType: 'password',
         login_center_bg,
-        supportDialogVisible:false
+        supportDialogVisible:false,
+        url: 'http://localhost:9000/mall/login/goods-galore.png'
       }
     },
     created() {

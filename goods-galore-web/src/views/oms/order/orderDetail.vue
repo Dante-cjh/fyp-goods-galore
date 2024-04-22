@@ -143,42 +143,8 @@
         </el-table-column>
       </el-table>
       <div style="float: right;margin: 20px">
-        合计：<span class="color-danger">￥{{order.totalAmount}}</span>
+        Total: <span class="color-danger">￥{{order.totalAmount}}</span>
       </div>
-<!--      <div style="margin-top: 60px">-->
-<!--        <svg-icon icon-class="marker" style="color: #606266"></svg-icon>-->
-<!--        <span class="font-small">费用信息</span>-->
-<!--      </div>-->
-<!--      <div class="table-layout">-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell-title">商品合计</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">运费</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">优惠券</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">积分抵扣</el-col>-->
-<!--        </el-row>-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell">￥{{order.totalAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">￥{{order.freightAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">-￥{{order.couponAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">-￥{{order.integrationAmount}}</el-col>-->
-<!--        </el-row>-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell-title">活动优惠</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">折扣金额</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">订单总金额</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">应付款金额</el-col>-->
-<!--        </el-row>-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell">-￥{{order.promotionAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">-￥{{order.discountAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">-->
-<!--            <span class="color-danger">￥{{order.totalAmount+order.freightAmount}}</span>-->
-<!--          </el-col>-->
-<!--          <el-col :span="6" class="table-cell">-->
-<!--            <span class="color-danger">￥{{order.payAmount+order.freightAmount-order.discountAmount}}</span>-->
-<!--          </el-col>-->
-<!--        </el-row>-->
-<!--      </div>-->
       <div style="margin-top: 60px">
         <svg-icon icon-class="marker" style="color: #606266"></svg-icon>
         <span class="font-small">Operation History</span>
@@ -186,11 +152,6 @@
       <el-table style="margin-top: 20px;width: 100%"
                 ref="orderHistoryTable"
                 :data="order.historyList" border>
-<!--        <el-table-column label="Operator"  width="120" align="center">-->
-<!--          <template slot-scope="scope">-->
-<!--            {{scope.row.operateMan}}-->
-<!--          </template>-->
-<!--        </el-table-column>-->
         <el-table-column label="Operation Time"  width="180" align="center">
           <template slot-scope="scope">
             {{formatTime(scope.row.createTime)}}
@@ -218,81 +179,6 @@
         </el-table-column>
       </el-table>
     </el-card>
-<!--    <el-dialog title="修改收货人信息"-->
-<!--               :visible.sync="receiverDialogVisible"-->
-<!--               width="40%">-->
-<!--      <el-form :model="receiverInfo"-->
-<!--               ref="receiverInfoForm"-->
-<!--               label-width="150px">-->
-<!--        <el-form-item label="收货人姓名：">-->
-<!--          <el-input v-model="receiverInfo.receiverName" style="width: 200px"></el-input>-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="手机号码：">-->
-<!--          <el-input v-model="receiverInfo.receiverPhone" style="width: 200px">-->
-<!--          </el-input>-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="邮政编码：">-->
-<!--          <el-input v-model="receiverInfo.receiverPostCode" style="width: 200px">-->
-<!--          </el-input>-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="所在区域：">-->
-<!--          <v-distpicker :province="receiverInfo.receiverProvince"-->
-<!--                        :city="receiverInfo.receiverCity"-->
-<!--                        :area="receiverInfo.receiverRegion"-->
-<!--                        @selected="onSelectRegion"></v-distpicker>-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="详细地址：">-->
-<!--          <el-input v-model="receiverInfo.receiverDetailAddress" type="textarea" rows="3">-->
-<!--          </el-input>-->
-<!--        </el-form-item>-->
-<!--      </el-form>-->
-<!--      <span slot="footer" class="dialog-footer">-->
-<!--      <el-button @click="receiverDialogVisible = false">取 消</el-button>-->
-<!--      <el-button type="primary" @click="handleUpdateReceiverInfo">确 定</el-button>-->
-<!--      </span>-->
-<!--    </el-dialog>-->
-<!--    <el-dialog title="修改费用信息"-->
-<!--               :visible.sync="moneyDialogVisible"-->
-<!--               width="40%">-->
-<!--      <div class="table-layout">-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell-title">商品合计</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">运费</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">优惠券</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">积分抵扣</el-col>-->
-<!--        </el-row>-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell">￥{{order.totalAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">-->
-<!--            <el-input v-model.number="moneyInfo.freightAmount" size="mini"><template slot="prepend">￥</template></el-input>-->
-<!--          </el-col>-->
-<!--          <el-col :span="6" class="table-cell">-￥{{order.couponAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">-￥{{order.integrationAmount}}</el-col>-->
-<!--        </el-row>-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell-title">活动优惠</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">折扣金额</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">订单总金额</el-col>-->
-<!--          <el-col :span="6" class="table-cell-title">应付款金额</el-col>-->
-<!--        </el-row>-->
-<!--        <el-row>-->
-<!--          <el-col :span="6" class="table-cell">-￥{{order.promotionAmount}}</el-col>-->
-<!--          <el-col :span="6" class="table-cell">-->
-<!--            <el-input v-model.number="moneyInfo.discountAmount" size="mini"><template slot="prepend">-￥</template></el-input>-->
-<!--          </el-col>-->
-<!--          <el-col :span="6" class="table-cell">-->
-<!--            <span class="color-danger">￥{{order.totalAmount+moneyInfo.freightAmount}}</span>-->
-<!--          </el-col>-->
-<!--          <el-col :span="6" class="table-cell">-->
-<!--            <span class="color-danger">￥{{order.payAmount+moneyInfo.freightAmount-moneyInfo.discountAmount}}</span>-->
-<!--          </el-col>-->
-<!--        </el-row>-->
-<!--      </div>-->
-<!--      <span slot="footer" class="dialog-footer">-->
-<!--      <el-button @click="moneyDialogVisible = false">取 消</el-button>-->
-<!--      <el-button type="primary" @click="handleUpdateMoneyInfo">确 定</el-button>-->
-<!--      </span>-->
-<!--    </el-dialog>-->
     <el-dialog title="Send Message"
                :visible.sync="messageDialogVisible"
                width="40%">
