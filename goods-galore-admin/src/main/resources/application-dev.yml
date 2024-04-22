@@ -22,8 +22,8 @@ spring:
 minio:
   endpoint: http://localhost:9000 #MinIO服务所在地址
   bucketName: mall #存储桶名称
-  accessKey: minioadmin #访问的key
-  secretKey: minioadmin #访问的秘钥
+  accessKey: QTR0xx4Zoc2YeszZR9op #访问的key
+  secretKey: ifuR85ySAdSSwdo5LaAmRxlaSYOJgtdA7tD37CkP #访问的秘钥
 
 logging:
   level:

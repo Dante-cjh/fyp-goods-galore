@@ -5,7 +5,7 @@
         <div style="text-align: center">
           <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
         </div>
-        <h2 class="login-title color-main">mall-register-web</h2>
+        <h2 class="login-title color-main">Goods-galore-web</h2>
         <el-form-item label="Account" prop="username">
           <el-input v-model="admin.username">
             <span slot="prefix">
@@ -47,8 +47,8 @@
             </span>
           </el-input>
         </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="handleRegister">Register</el-button>
+        <el-form-item class="register-button">
+          <el-button type="primary" @click="handleRegister" >Register</el-button>
         </el-form-item>
         <div>
           <el-link type="primary" @click="$router.push({ path: '/login' })">I have an account?</el-link>
@@ -143,13 +143,18 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  width: 360px;
+  width: 480px;
   margin: 140px auto;
   border-top: 10px solid #409EFF;
 }
 
 .login-title {
   text-align: center;
+}
+
+.register-button {
+  text-align: center;
+  margin-right: 80px;
 }
 
 .login-center-layout {

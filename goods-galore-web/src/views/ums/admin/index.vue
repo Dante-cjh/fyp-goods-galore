@@ -133,10 +133,10 @@
       </span>
     </el-dialog>
     <el-dialog
-      title="分配角色"
+      title="Assign Role"
       :visible.sync="allocDialogVisible"
       width="30%">
-      <el-select v-model="allocRoleIds" multiple placeholder="请选择" size="small" style="width: 80%">
+      <el-select v-model="allocRoleIds" multiple placeholder="please choose" size="small" style="width: 80%">
         <el-option
           v-for="item in allRoleList"
           :key="item.id"

@@ -101,7 +101,7 @@
         </el-col>
         <el-col :span="12">
           <div class="out-border">
-            <div class="layout-title">Supermarket Overview</div>
+            <div class="layout-title">Product Overview</div>
             <div style="padding: 40px">
               <el-row>
                 <el-col :span="6" class="color-danger overview-item-value">16</el-col>
@@ -167,8 +167,8 @@
               align="right"
               unlink-panels
               range-separator="to"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
+              start-placeholder="start date"
+              end-placeholder="end date"
               @change="handleDateChange"
               :picker-options="pickerOptions">
             </el-date-picker>
@@ -246,7 +246,7 @@
           xAxisType: 'time',
           area:true,
           axisSite: { right: ['orderAmount']},
-        labelMap: {'orderCount': '订单数量', 'orderAmount': '订单金额'}},
+        labelMap: {'orderCount': 'Count', 'orderAmount': 'Amount'}},
         chartData: {
           columns: [],
           rows: []
