@@ -104,16 +104,6 @@
           style="margin-top: 20px"
           @click="handleRefreshProductSkuList">Refresh
         </el-button>
-        <el-button
-          type="primary"
-          style="margin-top: 20px"
-          @click="handleSyncProductSkuPrice">Synchronized price
-        </el-button>
-        <el-button
-          type="primary"
-          style="margin-top: 20px"
-          @click="handleSyncProductSkuStock">Synchronized inventory
-        </el-button>
       </el-form-item>
       <el-form-item label="Attribute picture:" v-if="hasAttrPic">
         <el-card shadow="never" class="cardBg">
@@ -422,44 +412,6 @@
         }).then(() => {
           this.refreshProductAttrPics();
           this.refreshProductSkuList();
-        });
-      },
-      handleSyncProductSkuPrice(){
-        this.$confirm('Will synchronize the price of the first sku to all sku, continue or not?', 'Tip', {
-          confirmButtonText: 'Confirm',
-          cancelButtonText: 'Cancel',
-          type: 'warning'
-        }).then(() => {
-          if(this.value.skuStockList!==null&&this.value.skuStockList.length>0){
-            let tempSkuList = [];
-            tempSkuList = tempSkuList.concat(tempSkuList,this.value.skuStockList);
-            let price=this.value.skuStockList[0].price;
-            for(let i=0;i<tempSkuList.length;i++){
-              tempSkuList[i].price=price;
-            }
-            this.value.skuStockList=[];
-            this.value.skuStockList=this.value.skuStockList.concat(this.value.skuStockList,tempSkuList);
-          }
-        });
-      },
-      handleSyncProductSkuStock(){
-        this.$confirm('Will synchronize the inventory of the first sku to all skus, continue or not?', 'Tip', {
-          confirmButtonText: 'Confirm',
-          cancelButtonText: 'Cancel',
-          type: 'warning'
-        }).then(() => {
-          if(this.value.skuStockList!==null&&this.value.skuStockList.length>0){
-            let tempSkuList = [];
-            tempSkuList = tempSkuList.concat(tempSkuList,this.value.skuStockList);
-            let stock=this.value.skuStockList[0].stock;
-            let lowStock=this.value.skuStockList[0].lowStock;
-            for(let i=0;i<tempSkuList.length;i++){
-              tempSkuList[i].stock=stock;
-              tempSkuList[i].lowStock=lowStock;
-            }
-            this.value.skuStockList=[];
-            this.value.skuStockList=this.value.skuStockList.concat(this.value.skuStockList,tempSkuList);
-          }
         });
       },
       refreshProductSkuList() {

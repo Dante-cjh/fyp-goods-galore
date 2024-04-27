@@ -86,7 +86,7 @@
         rules: {
           name: [
             {required: true, message: 'Please enter the product name', trigger: 'blur'},
-            {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
+            {min: 2, max: 140, message: '2 to 140 characters in length', trigger: 'blur'}
           ],
           subTitle: [{required: true, message: 'Please enter the subtitle of the product', trigger: 'blur'}],
           productCategoryId: [{required: true, message: 'Please select product category', trigger: 'blur'}],
@@ -174,7 +174,7 @@
             this.$emit('nextStep');
           } else {
             this.$message({
-              message: '验证失败',
+              message: 'Please input required fields',
               type: 'error',
               duration:1000
             });

@@ -54,7 +54,7 @@
         <el-table-column label="last change" width="160" align="center">
           <template slot-scope="scope">{{scope.row.loginTime | formatDateTime}}</template>
         </el-table-column>
-        <el-table-column label="Status" width="140" align="center">
+        <el-table-column label="Activate" width="140" align="center">
           <template slot-scope="scope">
             <el-switch
               @change="handleStatusChange(scope.$index, scope.row)"

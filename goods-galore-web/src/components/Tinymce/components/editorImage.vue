@@ -58,7 +58,7 @@
       handleSubmit() {
         const arr = Object.keys(this.listObj).map(v => this.listObj[v])
         if (!this.checkAllSuccess()) {
-          this.$message('请等待所有图片上传成功 或 出现了网络问题，请刷新页面重新上传！')
+          this.$message('Please refresh the page to re-upload!')
           return
         }
         console.log(arr);

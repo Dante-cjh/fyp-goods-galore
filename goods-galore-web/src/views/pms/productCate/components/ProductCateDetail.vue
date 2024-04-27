@@ -60,8 +60,8 @@
         <el-input type="textarea" :autosize="true" v-model="productCate.description"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit('productCateFrom')">提交</el-button>
-        <el-button v-if="!isEdit" @click="resetForm('productCateFrom')">重置</el-button>
+        <el-button type="primary" @click="onSubmit('productCateFrom')">Submit</el-button>
+        <el-button v-if="!isEdit" @click="resetForm('productCateFrom')">Reset</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -250,7 +250,7 @@
     filters: {
       filterLabelFilter(index) {
         if (index === 0) {
-          return 'Filter Properties:';
+          return 'Filter Attribute:';
         } else {
           return '';
         }
