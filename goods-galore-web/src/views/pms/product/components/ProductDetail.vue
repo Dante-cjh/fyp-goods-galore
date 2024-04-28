@@ -21,9 +21,7 @@
 </template>
 <script>
   import ProductInfoDetail from './ProductInfoDetail';
-  import ProductSaleDetail from './ProductSaleDetail';
   import ProductAttrDetail from './ProductAttrDetail';
-  import ProductRelationDetail from './ProductRelationDetail';
   import {createProduct,getProduct,updateProduct} from '@/api/product';
 
   const defaultProductParam = {

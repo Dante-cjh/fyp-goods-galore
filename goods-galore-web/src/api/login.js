@@ -17,7 +17,7 @@ export function register(username, nickName, email, password) {
     method: 'post',
     data: {
       username,
-      icon: 'https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_02.png',
+      icon: 'http://localhost:9000/mall/icons/user_1.png',
       email,
       nickName,
       password

@@ -152,23 +152,15 @@
             </p>
           </template>
         </el-table-column>
-        <el-table-column label="Operate" width="180" align="center">
+        <el-table-column label="Operate" width="120" align="center">
           <template slot-scope="scope">
             <p>
-              <el-button
-                size="mini"
-                @click="handleShowProduct(scope.$index, scope.row)">Check
-              </el-button>
               <el-button
                 size="mini"
                 @click="handleUpdateProduct(scope.$index, scope.row)">Update
               </el-button>
             </p>
             <p>
-              <el-button
-                size="mini"
-                @click="handleShowLog(scope.$index, scope.row)">Log
-              </el-button>
               <el-button
                 size="mini"
                 type="danger"
@@ -386,7 +378,7 @@
         if (value === 1) {
           return 'Verified';
         } else {
-          return 'Not Verified';
+          return 'Verified';
         }
       }
     },
@@ -583,14 +575,8 @@
       handleUpdateProduct(index,row){
         this.$router.push({path:'/pms/updateProduct',query:{id:row.id}});
       },
-      handleShowProduct(index,row){
-        console.log("handleShowProduct",row);
-      },
       handleShowVerifyDetail(index,row){
         console.log("handleShowVerifyDetail",row);
-      },
-      handleShowLog(index,row){
-        console.log("handleShowLog",row);
       },
       updatePublishStatus(publishStatus, ids) {
         let params = new URLSearchParams();

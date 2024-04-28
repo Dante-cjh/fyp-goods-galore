@@ -46,7 +46,6 @@ const user = {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         register(username, userInfo.nickName, userInfo.email, userInfo.password).then(response => {
-          console.log("注册成功",response)
           resolve()
         }).catch(error => {
           reject(error)
