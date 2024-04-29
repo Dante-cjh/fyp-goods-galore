@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>good-galore-admin</name>
-    <description>mall-admin project for mall</description>
+    <description>good-galore-admin project</description>
 
     <parent>
         <groupId>jiahan.chen</groupId>

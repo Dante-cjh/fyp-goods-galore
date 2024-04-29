@@ -17,7 +17,6 @@
 				<text class="price-tip">¥</text>
 				<text class="price">{{product.price}}</text>
 				<text class="m-price">¥{{product.originalPrice}}</text>
-				<!-- <text class="coupon-tip">7折</text> -->
 			</view>
 			<view class="bot-row">
 				<text>Sale: {{product.sale}}</text>
@@ -25,21 +24,6 @@
 				<text>Watched: 768</text>
 			</view>
 		</view>
-
-		<!--  分享 -->
-<!-- 		<view class="share-section" @click="share">
-			<view class="share-icon">
-				<text class="yticon icon-xingxing"></text>
-				返
-			</view>
-			<text class="tit">该商品分享可领49减10红包</text>
-			<text class="yticon icon-bangzhu1"></text>
-			<view class="share-btn">
-				立即分享
-				<text class="yticon icon-you"></text>
-			</view>
-
-		</view> -->
 
 		<view class="c-list">
 			<view class="c-row b-b" @click="toggleSpec">
@@ -58,17 +42,6 @@
 				</view>
 				<text class="yticon icon-you"></text>
 			</view>
-<!-- 			<view class="c-row b-b" @click="toggleCoupon('show')">
-				<text class="tit">优惠券</text>
-				<text class="con t-r red">领取优惠券</text>
-				<text class="yticon icon-you"></text>
-			</view>
-			<view class="c-row b-b">
-				<text class="tit">促销活动</text>
-				<view class="con-list">
-					<text v-for="item in promotionTipList" :key="item">{{item}}</text>
-				</view>
-			</view> -->
 			<view class="c-row b-b">
 				<text class="tit">Service</text>
 				<view class="bz-list con">
@@ -188,30 +161,6 @@
 				</view>
 			</view>
 		</view>
-		<!-- 优惠券面板 -->
-		<view class="mask" :class="couponState===0 ? 'none' : couponState===1 ? 'show' : ''" @click="toggleCoupon">
-			<view class="mask-content" @click.stop.prevent="stopPrevent">
-				<!-- 优惠券页面，仿mt -->
-				<view class="coupon-item" v-for="(item,index) in couponList" :key="index" @click="addCoupon(item)">
-					<view class="con">
-						<view class="left">
-							<text class="title">{{item.name}}</text>
-							<text class="time">有效期至{{item.endTime | formatDateTime}}</text>
-						</view>
-						<view class="right">
-							<text class="price">{{item.amount}}</text>
-							<text>满{{item.minPoint}}可用</text>
-						</view>
-
-						<view class="circle l"></view>
-						<view class="circle r"></view>
-					</view>
-					<text class="tips">{{item.useType | formatCouponUseType}}</text>
-				</view>
-			</view>
-		</view>
-		<!-- 分享 -->
-		<share ref="share" :contentHeight="580" :shareList="shareList"></share>
 	</view>
 </template>
 
@@ -251,27 +200,6 @@
 		id: 3,
 		name: "Free Shipping"
 	}];
-	const defaultShareList = [{
-			type: 1,
-			icon: '/static/temp/share_wechat.png',
-			text: '微信好友'
-		},
-		{
-			type: 2,
-			icon: '/static/temp/share_moment.png',
-			text: '朋友圈'
-		},
-		{
-			type: 3,
-			icon: '/static/temp/share_qq.png',
-			text: 'QQ好友'
-		},
-		{
-			type: 4,
-			icon: '/static/temp/share_qqzone.png',
-			text: 'QQ空间'
-		}
-	]
 	export default {
 		components: {
 			share

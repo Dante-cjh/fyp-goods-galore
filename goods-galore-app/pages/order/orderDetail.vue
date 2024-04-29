@@ -54,14 +54,6 @@
 				<text class="cell-tit clamp">Promotion Amount</text>
 				<text class="cell-tip red">-￥{{order.promotionAmount}}</text>
 			</view>
-<!-- 			<view class="yt-list-cell b-b">
-				<text class="cell-tit clamp">优惠券</text>
-				<text class="cell-tip red">-￥{{order.couponAmount}}</text>
-			</view>
-			<view class="yt-list-cell b-b">
-				<text class="cell-tit clamp">积分抵扣</text>
-				<text class="cell-tip red">-￥{{order.integrationAmount}}</text>
-			</view> -->
 			<view class="yt-list-cell desc-cell">
 				<text class="cell-tit clamp">Note</text>
 				<text class="cell-tip">{{order.note}}</text>
