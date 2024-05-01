@@ -40,7 +40,7 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="Visible" width="100" align="center">
+        <el-table-column label="Show Status" width="110" align="center">
           <template slot-scope="scope">
             <el-switch
               @change="handleShowStatusChange(scope.$index, scope.row)"
@@ -50,7 +50,7 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="Sort" width="100" align="center">
+        <el-table-column label="Sort" width="80" align="center">
           <template slot-scope="scope">{{scope.row.sort }}</template>
         </el-table-column>
         <el-table-column label="Settings" width="150" align="center">
@@ -60,10 +60,6 @@
               :disabled="scope.row.level | disableNextLevel"
               @click="handleShowNextLevel(scope.$index, scope.row)">Lower Level
             </el-button>
-<!--            <el-button-->
-<!--              size="mini"-->
-<!--              @click="handleTransferProduct(scope.$index, scope.row)">Transfer-->
-<!--            </el-button>-->
           </template>
         </el-table-column>
         <el-table-column label="Operate" width="200" align="center">
@@ -182,9 +178,6 @@
       },
       handleShowNextLevel(index, row) {
         this.$router.push({path: '/pms/productCate', query: {parentId: row.id}})
-      },
-      handleTransferProduct(index, row) {
-        console.log('handleAddProductCate');
       },
       handleUpdate(index, row) {
         this.$router.push({path:'/pms/updateProductCate',query:{id:row.id}});

@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<image src="/static/recommend_brand_banner.png" class="banner-image"></image>
+		<image src="/static/goods-galore.png" class="banner-image"></image>
 		<view class="section-tit">Related Brand</view>
 		<view class="goods-list">
 			<view v-for="(item, index) in brandList" :key="index" class="goods-item" @click="navToDetailPage(item)">

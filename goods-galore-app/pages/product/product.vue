@@ -42,12 +42,6 @@
 				</view>
 				<text class="yticon icon-you"></text>
 			</view>
-			<view class="c-row b-b">
-				<text class="tit">Service</text>
-				<view class="bz-list con">
-					<text v-for="item in serviceList" :key="item">{{item}} ·</text>
-				</view>
-			</view>
 		</view>
 
 		<!-- 评价 -->
@@ -59,7 +53,6 @@
 				<text class="yticon icon-you"></text>
 			</view>
 			<view class="eva-box">
-				<image class="portrait" src="http://img3.imgtn.bdimg.com/it/u=1150341365,1327279810&fm=26&gp=0.jpg" mode="aspectFill"></image>
 				<view class="right">
 					<text class="name">Jiahan Chen</text>
 					<text class="con">The goods received, good quality, tried a little thin, but add an outer cover is very beautiful, I love it!</text>
@@ -189,16 +182,6 @@
 	import {
 		formatDate
 	} from '@/utils/date';
-	const defaultServiceList = [{
-		id: 1,
-		name: "Free Return"
-	}, {
-		id: 2,
-		name: "Fast Refunds"
-	}, {
-		id: 3,
-		name: "Free Shipping"
-	}];
 	export default {
 		data() {
 			return {
@@ -253,10 +236,8 @@
 					this.skuStockList = response.data.skuStockList;
 					this.brand = response.data.brand;
 					this.initImgList();
-					this.initServiceList();
 					this.initSpecList(response.data);
 					this.initAttrList(response.data);
-					this.initPromotionTipList(response.data);
 					this.initProductDesc();
 					this.handleReadHistory();
 					this.initProductCollection();
@@ -381,14 +362,6 @@
 					}
 				}
 			},
-			//设置服务信息
-			initServiceList() {
-				for (let item of defaultServiceList) {
-					if (this.product.serviceIds.indexOf(item.id) != -1) {
-						this.serviceList.push(item.name);
-					}
-				}
-			},
 			//设置商品规格
 			initSpecList(data) {
 				for (let i = 0; i < data.productAttributeList.length; i++) {
@@ -413,6 +386,7 @@
 						} else if (item.handAddStatus == 0) {
 							//不支持手动新增的
 							let inputList = item.inputList.split(',');
+							console.log('inputList',inputList);
 							for (let j = 0; j < inputList.length; j++) {
 								this.specChildList.push({
 									pid: item.id,
@@ -460,29 +434,7 @@
 					}
 				}
 			},
-			//设置促销活动信息
-			initPromotionTipList(data) {
-				let promotionType = this.product.promotionType;
-				if (promotionType == 0) {
-					this.promotionTipList.push("暂无优惠");
-				} else if (promotionType == 1) {
-					this.promotionTipList.push("单品优惠");
-				} else if (promotionType == 2) {
-					this.promotionTipList.push("会员优惠");
-				} else if (promotionType == 3) {
-					this.promotionTipList.push("多买优惠");
-					for (let item of data.productLadderList) {
-						this.promotionTipList.push("满" + item.count + "件打" + item.discount * 10 + "折");
-					}
-				} else if (promotionType == 4) {
-					this.promotionTipList.push("满减优惠");
-					for (let item of data.productFullReductionList) {
-						this.promotionTipList.push("满" + item.fullPrice + "元减" + item.reducePrice + "元");
-					}
-				} else if (promotionType == 5) {
-					this.promotionTipList.push("限时优惠");
-				}
-			},
+
 			//初始化商品详情信息
 			initProductDesc() {
 				let rawhtml = this.product.detailMobileHtml;

@@ -72,8 +72,8 @@
         },
         "sdkConfigs" : {
             "maps" : {
-                "google" : {
-                    "key" : "AIzaSyCGAAgbVuWs9qmACa8p96eTLlZ66gFoYyk"
+                "qqmap" : {
+                    "key" : ""
                 }
             }
         }

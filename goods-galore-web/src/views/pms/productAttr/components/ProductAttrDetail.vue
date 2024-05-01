@@ -30,12 +30,6 @@
       <el-form-item label="Optional Values List:">
         <el-input :autosize="true" type="textarea" v-model="inputListFormat"></el-input>
       </el-form-item>
-      <el-form-item label="Support Supplier Input:">
-        <el-radio-group v-model="productAttr.handAddStatus">
-          <el-radio :label="1">yes</el-radio>
-          <el-radio :label="0">no</el-radio>
-        </el-radio-group>
-      </el-form-item>
       <el-form-item label="Sort Attribute:">
         <el-input v-model="productAttr.sort"></el-input>
       </el-form-item>
@@ -100,6 +94,9 @@
       inputListFormat: function (newValue, oldValue) {
         newValue = newValue.replace(/\n/g,',');
         this.productAttr.inputList = newValue;
+      },
+      'productAttr.inputType': function(newVal, oldVal) {
+        this.productAttr.handAddStatus = Number(!newVal);
       }
     },
     methods: {

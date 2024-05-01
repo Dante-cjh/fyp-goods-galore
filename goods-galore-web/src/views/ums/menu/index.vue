@@ -18,13 +18,13 @@
         <el-table-column label="No." width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="Menu Name" align="center">
+        <el-table-column label="Menu Title" align="center">
           <template slot-scope="scope">{{scope.row.title}}</template>
         </el-table-column>
         <el-table-column label="Menu Level" width="100" align="center">
           <template slot-scope="scope">{{scope.row.level | levelFilter}}</template>
         </el-table-column>
-        <el-table-column label="Frontend Name" align="center">
+        <el-table-column label="Name" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
         <el-table-column label="Icon" width="100" align="center">
@@ -126,6 +126,7 @@
       getList() {
         this.listLoading = true;
         fetchList(this.parentId, this.listQuery).then(response => {
+          console.log('menu list', response.data);
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;

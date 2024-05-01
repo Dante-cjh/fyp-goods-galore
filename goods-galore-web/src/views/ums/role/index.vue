@@ -45,7 +45,7 @@
         <el-table-column label="Description" align="center">
           <template slot-scope="scope">{{scope.row.description}}</template>
         </el-table-column>
-        <el-table-column label="Admin Count"  width="100" align="center">
+        <el-table-column label="Admin Count"  width="110" align="center">
           <template slot-scope="scope">{{scope.row.adminCount}}</template>
         </el-table-column>
         <el-table-column label="Create Time" width="160" align="center">

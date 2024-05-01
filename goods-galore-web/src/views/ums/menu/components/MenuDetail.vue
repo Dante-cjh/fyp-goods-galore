@@ -27,8 +27,8 @@
       </el-form-item>
       <el-form-item label="Visible: ">
         <el-radio-group v-model="menu.hidden">
-          <el-radio :label="0">是</el-radio>
-          <el-radio :label="1">否</el-radio>
+          <el-radio :label="0">Yes</el-radio>
+          <el-radio :label="1">No</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="Sort: ">

@@ -39,23 +39,6 @@
       <el-form-item label="Category Icon:">
         <single-upload v-model="productCate.icon"></single-upload>
       </el-form-item>
-      <el-form-item v-for="(filterProductAttr, index) in filterProductAttrList"
-                    :label="index | filterLabelFilter"
-                    :key="filterProductAttr.key"
-      >
-        <el-cascader
-          clearable
-          v-model="filterProductAttr.value"
-          :options="filterAttrs">
-        </el-cascader>
-        <el-button style="margin-left: 20px" @click.prevent="removeFilterAttr(filterProductAttr)">Delete</el-button>
-      </el-form-item>
-      <el-form-item>
-        <el-button size="small" type="primary" @click="handleAddFilterAttr()">Add</el-button>
-      </el-form-item>
-      <el-form-item label="Keywords:">
-        <el-input v-model="productCate.keywords"></el-input>
-      </el-form-item>
       <el-form-item label="Category Description:">
         <el-input type="textarea" :autosize="true" v-model="productCate.description"></el-input>
       </el-form-item>
