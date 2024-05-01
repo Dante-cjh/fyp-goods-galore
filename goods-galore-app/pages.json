@@ -170,12 +170,6 @@
 				"navigationBarTitleText": "Product List"
 			}
 		}, {
-			"path": "pages/coupon/couponList",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "Coupon List"
-			}
-		}, {
 			"path": "pages/brand/brandDetail",
 			"style": {
 				"enablePullDownRefresh": true,
@@ -254,7 +248,7 @@
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "mall-app-web",
+		"navigationBarTitleText": "Goods-Galore-app",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#f8f8f8"
 	},

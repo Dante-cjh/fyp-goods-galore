@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets" style="margin-top: 5px"></i>
-      <span style="margin-top: 5px">Product Type List</span>
+      <span style="margin-top: 5px">Product Property List</span>
       <el-button
         class="btn-add"
         @click="addProductAttrCate()"

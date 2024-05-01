@@ -165,7 +165,6 @@
 </template>
 
 <script>
-	import share from '@/components/share';
 	import {
 		fetchProductDetail
 	} from '@/api/product.js';
@@ -201,16 +200,12 @@
 		name: "Free Shipping"
 	}];
 	export default {
-		components: {
-			share
-		},
 		data() {
 			return {
 				specClass: 'none',
 				attrClass: 'none',
 				specSelected: [],
 				favorite: false,
-				shareList: [],
 				imgList: [],
 				desc: '',
 				specList: [],
@@ -227,7 +222,6 @@
 		},
 		async onLoad(options) {
 			let id = options.id;
-			this.shareList = defaultShareList;
 			this.loadData(id);
 		},
 		computed: {
@@ -333,20 +327,6 @@
 				})
 				this.changeSpecInfo();
 
-			},
-			//领取优惠券
-			addCoupon(coupon) {
-				this.toggleCoupon();
-				addMemberCoupon(coupon.id).then(response => {
-					uni.showToast({
-						title: '领取优惠券成功！',
-						duration: 2000
-					});
-				});
-			},
-			//分享
-			share() {
-				this.$refs.share.toggleMask();
 			},
 			//收藏
 			toFavorite() {

@@ -33,6 +33,8 @@ public interface HomeDao {
      */
     List<PmsProduct> getHotProductList(@Param("offset") Integer offset,@Param("limit") Integer limit);
 
+    List<PmsProduct> getHotProductListNew(@Param("offset") Integer offset,@Param("limit") Integer limit);
+
     /**
      * 获取推荐专题
      */

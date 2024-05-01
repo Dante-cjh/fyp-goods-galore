@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<image src="/static/new_product_banner.png" class="banner-image"></image>
+		<image src="/static/new_banner.png" class="banner-image"></image>
 		<view class="section-tit">Related Products</view>
 		<view class="goods-list">
 			<view v-for="(item, index) in productList" :key="index" class="goods-item" @click="navToDetailPage(item)">
@@ -71,6 +71,7 @@
 				}
 				fetchNewProductList(this.searchParam).then(response => {
 					let productList = response.data;
+					console.log(productList);
 					if (response.data.length === 0) {
 						//没有更多了
 						this.loadingType = 'nomore';

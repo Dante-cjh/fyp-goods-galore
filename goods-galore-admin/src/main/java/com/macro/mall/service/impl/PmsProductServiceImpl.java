@@ -64,6 +64,10 @@ public class PmsProductServiceImpl implements PmsProductService {
     private PmsProductDao productDao;
     @Autowired
     private PmsProductVertifyRecordDao productVertifyRecordDao;
+    @Autowired
+    private SmsHomeNewProductMapper smsHomeNewProductMapper;
+    @Autowired
+    private SmsHomeRecommendProductMapper smsHomeRecommendProductMapper;
 
     @Override
     public int create(PmsProductParam productParam) {
@@ -267,7 +271,27 @@ public class PmsProductServiceImpl implements PmsProductService {
         record.setRecommandStatus(recommendStatus);
         PmsProductExample example = new PmsProductExample();
         example.createCriteria().andIdIn(ids);
-        return productMapper.updateByExampleSelective(record, example);
+        int count = productMapper.updateByExampleSelective(record, example);
+
+        // 添加到sms_home_new_product表中
+        if (recommendStatus == 1) {
+            SmsHomeRecommendProduct smsHomeRecommendProduct = new SmsHomeRecommendProduct();
+            smsHomeRecommendProduct.setProductId(ids.get(0));
+            smsHomeRecommendProduct.setProductName(productMapper.selectByPrimaryKey(ids.get(0)).getName());
+            smsHomeRecommendProduct.setRecommendStatus(1);
+            smsHomeRecommendProduct.setSort(0);
+            smsHomeRecommendProductMapper.insert(smsHomeRecommendProduct);
+        }
+
+        if (recommendStatus == 0) {
+            SmsHomeRecommendProduct smsHomeRecommendProduct = new SmsHomeRecommendProduct();
+            smsHomeRecommendProduct.setRecommendStatus(0);
+            SmsHomeRecommendProductExample smsHomeNewProductExample = new SmsHomeRecommendProductExample();
+            smsHomeNewProductExample.createCriteria().andProductIdIn(ids);
+            smsHomeRecommendProductMapper.updateByExampleSelective(smsHomeRecommendProduct ,smsHomeNewProductExample);
+        }
+
+        return count;
     }
 
     @Override
@@ -276,7 +300,27 @@ public class PmsProductServiceImpl implements PmsProductService {
         record.setNewStatus(newStatus);
         PmsProductExample example = new PmsProductExample();
         example.createCriteria().andIdIn(ids);
-        return productMapper.updateByExampleSelective(record, example);
+        int count = productMapper.updateByExampleSelective(record, example);
+
+        // 添加到sms_home_new_product表中
+        if (newStatus == 1) {
+            SmsHomeNewProduct smsHomeNewProduct = new SmsHomeNewProduct();
+            smsHomeNewProduct.setProductId(ids.get(0));
+            smsHomeNewProduct.setProductName(productMapper.selectByPrimaryKey(ids.get(0)).getName());
+            smsHomeNewProduct.setRecommendStatus(1);
+            smsHomeNewProduct.setSort(0);
+            smsHomeNewProductMapper.insert(smsHomeNewProduct);
+        }
+
+        if (newStatus == 0) {
+            SmsHomeNewProduct smsHomeNewProduct = new SmsHomeNewProduct();
+            smsHomeNewProduct.setRecommendStatus(0);
+            SmsHomeNewProductExample smsHomeNewProductExample = new SmsHomeNewProductExample();
+            smsHomeNewProductExample.createCriteria().andProductIdIn(ids);
+            smsHomeNewProductMapper.updateByExampleSelective(smsHomeNewProduct ,smsHomeNewProductExample);
+        }
+
+        return count;
     }
 
     @Override

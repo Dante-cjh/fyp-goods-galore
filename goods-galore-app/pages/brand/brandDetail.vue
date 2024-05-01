@@ -44,7 +44,6 @@
 </template>
 
 <script>
-	import share from '@/components/share';
 	import {
 		getBrandDetail,
 		fetchBrandProductList
@@ -59,9 +58,6 @@
 		mapState
 	} from 'vuex';
 	export default {
-		components: {
-			share
-		},
 		data() {
 			return {
 				loaded: false,
