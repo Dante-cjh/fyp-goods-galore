@@ -14,26 +14,18 @@
         <i class="el-icon-warning color-danger" style="margin-left: 20px"></i>
         <span class="color-danger">Order Status: {{order.status | formatStatus}}</span>
         <div class="operate-button-container" v-show="order.status===0">
-<!--          <el-button size="mini" @click="showUpdateReceiverDialog">Change Receiver Info</el-button>-->
-<!--          <el-button size="mini" @click="showUpdateMoneyDialog">修改费用信息</el-button>-->
           <el-button size="mini" @click="showMessageDialog">Send Message</el-button>
           <el-button size="mini" @click="showCloseOrderDialog">Close Order</el-button>
-          <el-button size="mini" @click="showMarkOrderDialog">Remark Order</el-button>
         </div>
         <div class="operate-button-container" v-show="order.status===1">
-<!--          <el-button size="mini" @click="showUpdateReceiverDialog">修改收货人信息</el-button>-->
           <el-button size="mini" @click="showMessageDialog">Send Message</el-button>
-          <el-button size="mini">Close Order</el-button>
-          <el-button size="mini" @click="showMarkOrderDialog">Remark Order</el-button>
         </div>
         <div class="operate-button-container" v-show="order.status===2||order.status===3">
           <el-button size="mini" @click="showLogisticsDialog">Order Logistics</el-button>
           <el-button size="mini" @click="showMessageDialog">Send Message</el-button>
-          <el-button size="mini" @click="showMarkOrderDialog">Remark Order</el-button>
         </div>
         <div class="operate-button-container" v-show="order.status===4">
           <el-button size="mini" @click="handleDeleteOrder">Delete Order</el-button>
-          <el-button size="mini" @click="showMarkOrderDialog">Remark Order</el-button>
         </div>
       </div>
       <div style="margin-top: 20px">
@@ -43,45 +35,16 @@
       <div class="table-layout">
         <el-row>
           <el-col :span="6" class="table-cell-title">Order SN</el-col>
-<!--          <el-col :span="4" class="table-cell-title">Shipment Number</el-col>-->
           <el-col :span="6" class="table-cell-title">User Account</el-col>
           <el-col :span="6" class="table-cell-title">Payment Type</el-col>
           <el-col :span="6" class="table-cell-title">Order Source</el-col>
-<!--          <el-col :span="4" class="table-cell-title">订单类型</el-col>-->
         </el-row>
         <el-row>
           <el-col :span="6" class="table-cell">{{order.orderSn}}</el-col>
-<!--          <el-col :span="4" class="table-cell">暂无</el-col>-->
           <el-col :span="6" class="table-cell">{{order.memberUsername}}</el-col>
           <el-col :span="6" class="table-cell">{{order.payType | formatPayType}}</el-col>
           <el-col :span="6" class="table-cell">{{order.sourceType | formatSourceType}}</el-col>
-<!--          <el-col :span="4" class="table-cell">{{order.orderType | formatOrderType}}</el-col>-->
         </el-row>
-<!--        <el-row>-->
-<!--          <el-col :span="4" class="table-cell-title">配送方式</el-col>-->
-<!--          <el-col :span="4" class="table-cell-title">物流单号</el-col>-->
-<!--          <el-col :span="4" class="table-cell-title">自动确认收货时间</el-col>-->
-<!--          <el-col :span="4" class="table-cell-title">订单可得优币</el-col>-->
-<!--          <el-col :span="4" class="table-cell-title">订单可得成长值</el-col>-->
-<!--          <el-col :span="4" class="table-cell-title">活动信息</el-col>-->
-<!--        </el-row>-->
-<!--        <el-row>-->
-<!--          <el-col :span="4" class="table-cell">{{order.deliveryCompany | formatNull}}</el-col>-->
-<!--          <el-col :span="4" class="table-cell">{{order.deliverySn | formatNull}}</el-col>-->
-<!--          <el-col :span="4" class="table-cell">{{order.autoConfirmDay}}天</el-col>-->
-<!--          <el-col :span="4" class="table-cell">{{order.integration}}</el-col>-->
-<!--          <el-col :span="4" class="table-cell">{{order.growth}}</el-col>-->
-<!--          <el-col :span="4" class="table-cell">-->
-<!--            <el-popover-->
-<!--              placement="top-start"-->
-<!--              title="活动信息"-->
-<!--              width="200"-->
-<!--              trigger="hover"-->
-<!--              :content="order.promotionInfo">-->
-<!--              <span slot="reference">{{order.promotionInfo | formatLongText}}</span>-->
-<!--            </el-popover>-->
-<!--          </el-col>-->
-<!--        </el-row>-->
       </div>
       <div style="margin-top: 20px">
         <svg-icon icon-class="marker" style="color: #606266"></svg-icon>
@@ -465,6 +428,7 @@
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
+          console.log(this.message.title, this.message.content);
           this.messageDialogVisible=false;
           this.$message({
             type: 'success',

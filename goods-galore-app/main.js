@@ -2,7 +2,7 @@ import Vue from 'vue'
 import store from './store'
 import App from './App'
 
-const msg = (title, duration=1500, mask=false, icon='none')=>{
+const msg = (title, mask=false, icon='none')=>{
 	//统一提示方便全局修改
 	if(Boolean(title) === false){
 		return;

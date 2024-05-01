@@ -16,7 +16,6 @@
 			<view class="price-box">
 				<text class="price-tip">¥</text>
 				<text class="price">{{product.price}}</text>
-				<text class="m-price">¥{{product.originalPrice}}</text>
 			</view>
 			<view class="bot-row">
 				<text>Sale: {{product.sale}}</text>
@@ -386,7 +385,6 @@
 						} else if (item.handAddStatus == 0) {
 							//不支持手动新增的
 							let inputList = item.inputList.split(',');
-							console.log('inputList',inputList);
 							for (let j = 0; j < inputList.length; j++) {
 								this.specChildList.push({
 									pid: item.id,
@@ -477,7 +475,6 @@
 			},
 			//获取当前选中商品的SKU
 			getSkuStock() {
-				console.log(this.skuStockList);
 				for (let i = 0; i < this.skuStockList.length; i++) {
 					let spDataArr = JSON.parse(this.skuStockList[i].spData);
 					let availAbleSpecSet = new Map();
